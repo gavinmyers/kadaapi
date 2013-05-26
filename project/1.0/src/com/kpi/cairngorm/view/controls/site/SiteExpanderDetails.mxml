@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Grid xmlns:mx="http://www.adobe.com/2006/mxml" width="100%">
+    <mx:Script><![CDATA[
+    	import com.kpi.cairngorm.view.windows.WorkOrder;
+    	import com.kpi.cairngorm.view.windows.Project;
+    import mx.collections.ArrayCollection;
+   
+			private function launch():void {
+				//var obj:WorkOrder = new WorkOrder();
+				//obj.open();
+			}
+        ]]>
+</mx:Script>
+
+
+		
+		<mx:GridRow width="100%">
+						
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Map" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:HTML location="http://www.gavinm.com/kadaapi/example_3.html" width="425" height="350" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+				</mx:VBox>
+			</mx:GridItem>
+			
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Info" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Grid width="100%">
+						<mx:GridRow width="100%">
+							<mx:GridItem width="60">
+								<mx:Label width="100%" text="Contact" textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="Roy Wittaker" textAlign="left" styleName="ListValue"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="60">
+								<mx:Label width="100%" text="Phone" textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="(651) 222-3434" textAlign="left" styleName="ListValue"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="60">
+								<mx:Label width="100%" text="E-mail"  textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="contractor@hotmail.com"  textAlign="left" styleName="ListValue"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="60">
+								<mx:Label width="100%" text="Address" textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:VBox verticalGap="0" width="100%">
+									<mx:Label width="100%" text="1234 84th St"  textAlign="left" styleName="ListValue"/>	
+									<mx:Label width="100%" text="Coon Rapids, MN 55433"  textAlign="left" styleName="ListValue"/>
+								</mx:VBox>
+																
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="60">
+								<mx:Label width="100%" text="Notes" textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Text width="100%" text="isse in tortor id dui suscipit cursus. Mauris vel blandit ipsum. Etiam tincidunt dapibus urna, ut lacinia risus dapibus non. Fus"  textAlign="left" styleName="ListValue"/>				
+							</mx:GridItem>
+						</mx:GridRow>
+
+					</mx:Grid>
+				</mx:VBox>
+			</mx:GridItem>
+			
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Button label="Launch Site" click="launch()"/>
+				</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+
+
+</mx:Grid>
+

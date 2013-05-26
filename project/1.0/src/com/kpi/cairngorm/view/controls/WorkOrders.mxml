@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" xmlns:expanders="com.kpi.interfaces.expanders.*" xmlns:workorder="com.kpi.cairngorm.view.controls.workorder.*" xmlns:buttons="com.kpi.interfaces.buttons.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.cairngorm.view.popups.WorkOrderCreate;
+			import com.kpi.cairngorm.view.windows.WorkOrder;
+			import com.kpi.cairngorm.view.windows.Project;
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function constructor():void {
+				this.title = "Work Orders";
+				this.icon = ImageLibrary.IconTools;
+			}
+			
+			public override function show(evt:CairngormEvent):void {
+				
+			}
+			
+			private function launch():void {
+				var obj:WorkOrder = new WorkOrder();
+				obj.open();
+			}
+			
+			private function launchAdd():void {
+				
+				var obj:WorkOrderCreate = new WorkOrderCreate();
+				obj.open(this);
+			}
+		]]>
+	</mx:Script>
+	
+
+	<core:content>
+		<mx:Grid width="100%" height="100%">
+			<mx:GridRow width="100%">
+				<mx:GridItem width="100%">
+					<mx:Canvas width="100%">
+						<buttons:ActionGear right="0">
+							<buttons:actionToolTipContent>
+								<mx:VBox>
+									<mx:Button width="150" label="create work order" click="launchAdd()"/>
+									<mx:Button width="150" label="create template"/>
+								</mx:VBox>
+							</buttons:actionToolTipContent>
+						</buttons:ActionGear>
+					</mx:Canvas>
+				</mx:GridItem>
+			</mx:GridRow>
+			<mx:GridRow width="100%" height="100%">
+				<mx:GridItem width="100%" height="100%" >
+		<mx:Canvas id="scroll_section" horizontalScrollPolicy="off" verticalScrollPolicy="auto" width="100%" height="100%">
+			<mx:VBox id="scroll_content" height="100%" verticalGap="2" left="0" right="{this.scroll_content.height > this.scroll_section.height ? 20 : 0}">
+				
+				<mx:Canvas width="100%">
+					<mx:Grid left="5" right="50">
+						<mx:GridRow width="100%">
+							<mx:GridItem width="50" >
+								
+							</mx:GridItem>
+							<mx:GridItem width="100%" >
+								<mx:Label text="Type" styleName="ListValueHighlighted"/>
+							</mx:GridItem>
+							<mx:GridItem width="100%" >
+								<mx:Label text="Site" styleName="ListValueHighlighted"/>
+							</mx:GridItem>
+							<mx:GridItem width="100%" >
+								<mx:Label text="City" styleName="ListValueHighlighted"/>
+							</mx:GridItem>
+							<mx:GridItem width="100%" >
+								<mx:Label text="ST" styleName="ListValueHighlighted"/>
+							</mx:GridItem>
+							<mx:GridItem width="120" >
+										
+							</mx:GridItem>
+						</mx:GridRow>
+					</mx:Grid>					
+				</mx:Canvas>
+			
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="50" >
+									<mx:Image source="{ImageLibrary.IconAlert}"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="POS Install" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Mart-Co 44" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Madison" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="WI" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:Image source="{ImageLibrary.IconProjectStatus0}"/>		
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<workorder:WorkOrderExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+				
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="50" >
+
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="ATM Install" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Mart-Co 44" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Madison" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="WI" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:Image source="{ImageLibrary.IconProjectStatus4}"/>		
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<workorder:WorkOrderExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+				
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="50" >
+
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="POS Install" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Mart-Co 11" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Madison" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="WI" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:Image source="{ImageLibrary.IconProjectStatus3}"/>		
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<workorder:WorkOrderExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+				
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="50" >
+
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="POS Install" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Mart-Co 13" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="Madison" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100%" >
+									<mx:Label text="WI" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:Image source="{ImageLibrary.IconProjectStatus2}"/>		
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<workorder:WorkOrderExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+			</mx:VBox>
+		</mx:Canvas>
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+
+
+	</core:content>
+	
+	
+</core:Control>
+

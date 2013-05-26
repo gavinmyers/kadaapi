@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="com.kpi.utilities.ImageLibrary"/>
+</includeClasses>
+<includeResources>
+<resourceEntry destPath="assets/swf/Library.fla" sourcePath="assets/swf/Library.fla"/>
+<resourceEntry destPath="assets/swf/Library.swf" sourcePath="assets/swf/Library.swf"/>
+</includeResources>
+<namespaceManifests/>
+</flexLibProperties>

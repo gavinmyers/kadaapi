@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module:Module 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute" 
+	xmlns:module="com.kpi.module.*" 
+	xmlns:calendar="com.kpi.cairngorm.view.modules.calendar.*">
+
+
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function constructor():void {
+				this.title = "Calendar";
+				this.icon = ImageLibrary.IconDate;
+			}
+						
+			public override function show(evt:CairngormEvent):void {
+
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<module:content>
+		<mx:Canvas width="100%" height="100%"  horizontalScrollPolicy="off" verticalScrollPolicy="off">
+			<mx:ComboBox width="110" right="0" id="viewCombo">
+			      <mx:ArrayCollection>
+			         <mx:String>Month</mx:String>
+			         <mx:String>Week</mx:String>
+			         <mx:String>Day</mx:String>
+			         <mx:String>List</mx:String>
+			      </mx:ArrayCollection>
+			</mx:ComboBox>
+
+			<calendar:CalendarMonth visible="{this.viewCombo.selectedIndex == 0}" id="month"/>
+			<calendar:CalendarWeek visible="{this.viewCombo.selectedIndex == 1}" id="week"/>
+			<calendar:CalendarDay visible="{this.viewCombo.selectedIndex == 2}" id="day"/>
+			<calendar:CalendarList visible="{this.viewCombo.selectedIndex == 3}" id="list"/>
+		</mx:Canvas>
+		
+	</module:content>
+	
+</module:Module>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomComponent 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="100%" 
+	creationComplete="init()" 
+	xmlns:filters="flash.filters.*" 
+	xmlns:customControl="com.kpi.interfaces.customControl.*" 
+	xmlns:buttons="com.kpi.interfaces.buttons.*" xmlns:contractor="com.kpi.cairngorm.view.controls.contractor.*">
+
+
+  <mx:Script>
+   <![CDATA[
+   	import mx.events.FlexEvent;
+   	import mx.core.WindowedApplication;
+   	import mx.containers.TitleWindow;
+    import flash.display.Bitmap;
+    import mx.events.CloseEvent;
+   	import com.kpi.utilities.ImageLibrary;
+   	
+   	
+	[Bindable]
+	public var contractor:Object;
+	
+	[Bindable]
+	public var tasks:Object;
+	
+	[Bindable]
+	public var position:String = ""; //top/middle/bottom/single
+	
+	
+   	
+    public function init():void {
+         // Move the app when the panel is dragged
+    	this.bind("contractor",this.contractor_area,null);
+    	this.bind("tasks",this.contractor_tasks_area,null);
+    	
+    
+    }
+     
+   ]]>
+  </mx:Script>
+
+
+	<mx:HBox horizontalGap="0" width="100%">
+		<mx:Image source="{ImageLibrary.IconClock}" visible="{this.position.toLowerCase() == 'top' || this.position.toLowerCase() == 'single'}" scaleContent="true" maintainAspectRatio="false" width="32" height="32"/>
+		<mx:Canvas height="100%" >
+			<mx:Image visible="{this.position.toLowerCase() != 'top' &amp;&amp; this.position.toLowerCase() != 'single'}" top="0" source="{ImageLibrary.ArrowJointOrange}" scaleContent="true" maintainAspectRatio="false" height="20"/>
+			<mx:Image top="16" source="{ImageLibrary.ArrowOrange}" scaleContent="true" maintainAspectRatio="false" width="24"/>
+			<mx:Image visible="{this.position.toLowerCase() != 'bottom' &amp;&amp; this.position.toLowerCase() != 'single'}" top="20" source="{ImageLibrary.ArrowJointOrange}" scaleContent="true" maintainAspectRatio="false" height="100%"/>
+		</mx:Canvas>
+		<mx:VBox verticalGap="0">
+			<mx:VBox id="contractor_area" verticalGap="0">
+				
+			</mx:VBox>
+			<mx:VBox id="contractor_tasks_area" paddingLeft="15" verticalGap="0" paddingBottom="15">
+				
+			</mx:VBox>
+		</mx:VBox>			
+	</mx:HBox>
+
+</customControl:CustomComponent>
+

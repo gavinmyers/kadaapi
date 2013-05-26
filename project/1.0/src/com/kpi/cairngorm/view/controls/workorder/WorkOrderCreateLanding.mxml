@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%"
+	xmlns:buttons="com.kpi.interfaces.buttons.*">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+		]]>
+	</mx:Script>
+	<mx:Grid width="100%">
+		<mx:GridRow width="100%">
+			<mx:GridItem width="100%" colSpan="3">
+				<mx:Text width="100%" styleName="ListValueBlack" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget bibendum velit. Morbi aliquam nibh sit amet purus euismod molestie. Nulla interdum ligula quis tortor malesuada sollicitudin. Donec consequat ultricies semper. Nulla molestie dictum erat vitae scelerisque. Cras posuere tempor elit, sit amet feugiat risus sagittis vitae. Phasellus eu justo non nibh eleifend vehicula. Donec adipiscing lobortis massa, pharetra porta odio ullamcorper at. Morbi congue sollicitudin sem luctus fringilla. Duis non libero vel arcu molestie pharetra. Nunc sit amet leo quam, molestie malesuada metus. Aliquam sapien enim, pellentesque vitae hendrerit sed, gravida vel sapien. Curabitur rhoncus hendrerit justo, nec pretium velit fermentum eu. Duis blandit, sem nec semper vehicula, mi enim porta arcu, vitae faucibus turpis nunc pretium tortor. Mauris et ligula ligula. Ut ut felis nisl. Ut ullamcorper, purus euismod varius feugiat, mi nulla imperdiet dui, a commodo erat risus condimentum velit. Maecenas eget ullamcorper justo. Duis a arcu lorem. "/>						
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%">
+			<mx:GridItem width="100%"/>
+			<mx:GridItem>
+				<mx:Box width="100%" height="100%" direction="vertical" >
+					<buttons:ActionButton click="{this.dispatchEvent(new Event('TEMPLATE'))}" 
+						icon="{ImageLibrary.IconBlocks}" 
+						title="select template" 
+						description="Ut vel ligula a magna dapibus suscipit. Proin turpis metus, interdum non lacinia eu, venenatis dignissim nisi. Mauris ut bibendum"/>
+						
+					<buttons:ActionButton click="{this.dispatchEvent(new Event('MANUAL'))}"
+						icon="{ImageLibrary.IconGears}" 
+						title="manual" 
+						description="Suspendisse potenti. Quisque imperdiet, est commodo mollis rhoncus"/>
+				</mx:Box>
+			</mx:GridItem>
+			<mx:GridItem width="100%"/>
+		</mx:GridRow>
+		
+	</mx:Grid>
+</mx:Canvas>

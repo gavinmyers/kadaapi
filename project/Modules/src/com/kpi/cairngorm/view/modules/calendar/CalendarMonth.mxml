@@ -1,0 +1,221 @@
+<mx:Grid xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" 
+	xmlns:calendar="com.kpi.cairngorm.view.modules.calendar.*"
+	width="100%" height="100%" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			[Bindable]
+			public var currentDate:Date = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+			
+			[Bindable]
+			public var currentMonth:Date = new Date();
+			
+			private function init():void {
+				currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth());
+				
+				var offset:Number = currentDate.getDate() + currentMonth.getDay();
+				
+				for(var i:Number = 1; i < 43; i++) {
+					var date:Date = new Date(currentDate.getTime());
+					date.setDate(date.getDate() + (i - offset));
+					var day:CalendarMonthDay = (this["day_"+i] as CalendarMonthDay);
+					day.date = date;
+					day.currentDate = currentDate;
+					day.hasDispatch = Math.round(Math.random() * 3) == 1;
+					day.hasDispatchAlert = day.hasDispatch && Math.round(Math.random() * 3) == 1;
+					if(date.getTime() == currentDate.getTime()) {
+						day.hasDispatchAlert = true;
+						day.hasDispatch = true;
+					}
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:DateFormatter id="dateFormatter" formatString="MMMM YYYY"/>
+
+	<mx:GridRow width="100%">
+	
+		<mx:GridItem colSpan="2" width="100%">
+
+		</mx:GridItem>
+		<mx:GridItem colSpan="3" width="100%">
+			<mx:HBox width="100%" height="100%" verticalAlign="middle" verticalCenter="1">
+				<mx:Button label="&lt;&lt;"/>
+				<mx:Label text="{dateFormatter.format(currentDate)}" styleName="CalendarMonthHeader" width="100%" textAlign="center"/>
+				<mx:Button label="&gt;&gt;"/>
+			</mx:HBox>
+			
+		</mx:GridItem>
+		<mx:GridItem colSpan="2" width="100%">
+			
+		</mx:GridItem>
+	</mx:GridRow>
+	<mx:GridRow width="100%">
+		<mx:GridItem width="100%">
+			<mx:Label text="Sunday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Monday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Tuesday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Wednesday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Thursday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Friday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Saturday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+	<mx:GridRow width="100%" height="100%">
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_1"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_2"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_3"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_4"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_5"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_6"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_7"/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+	<mx:GridRow width="100%" height="100%">
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_8"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_9"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_10"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay  id="day_11"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay  id="day_12"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay  id="day_13"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay  id="day_14"/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+	<mx:GridRow width="100%" height="100%">
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_15"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_16"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_17"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_18"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_19"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_20"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_21"/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+	<mx:GridRow width="100%" height="100%">
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_22"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_23"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_24"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_25"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_26"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_27"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_28"/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+	<mx:GridRow width="100%" height="100%">
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_29"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_30"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_31"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_32"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_33"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_34"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_35"/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+	<mx:GridRow width="100%" height="100%">
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_36"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_37"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_38"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_39"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_40"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_41"/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarMonthDay id="day_42"/>
+		</mx:GridItem>
+	</mx:GridRow>
+</mx:Grid>

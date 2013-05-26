@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomComponent width="100%" height="{this.main.height}"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	creationComplete="init()"
+	xmlns:filters="flash.filters.*" 
+	xmlns:customControl="com.kpi.interfaces.customControl.*" 
+	xmlns:buttons="com.kpi.interfaces.buttons.*"
+	 backgroundColor="#FFFFFF" backgroundAlpha="0">
+
+    <mx:Metadata>
+       [Event( name="selectedChange", type="flash.events.Event") ]
+    </mx:Metadata>
+
+  <mx:Script>
+   <![CDATA[
+   	import com.kpi.utilities.ImageLibrary;
+   	
+   	[Bindable]
+   	private var _selected:Boolean = false;
+   	
+   	[Bindable]
+	public function set selected(val:Object):void {
+	   this._selected = val;
+	   if(this._selected) {
+	   	//this.glow.play();
+	   } else {
+	   	//this.unglow.play();
+	   }
+	   this.dispatchEvent(new Event("selectedChange"));
+	}
+	public function get selected():Object {
+	   return this._selected;
+	}
+   	
+	[Bindable]
+	public var content:Object;
+	
+	[Bindable]
+	public var header:Object;
+		
+	[Bindable]
+	public var expanded:Boolean = false;
+   	
+    public function init():void {
+         // Move the app when the panel is dragged
+    	this.bind("content",this.content_area,null);
+    	this.bind("header",this.header_area,null);
+    	
+    
+    }
+    
+    [Bindable]
+    private var colorMatrix:Array = [0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0, 0, 0, 1, 0];
+     
+   ]]>
+  </mx:Script>
+<!--
+    <mx:Glow id="glow" target="{this.main}" duration="400" 
+        alphaFrom="0" alphaTo="1" 
+        blurXFrom="0.0" blurXTo="10.0" 
+        blurYFrom="0.0" blurYTo="10.0" 
+        color="0xFF9900"/>
+    <mx:Glow id="unglow" target="{this.main}" duration="400" 
+        alphaFrom="1" alphaTo="0" 
+        blurXFrom="10.0" blurXTo="0.0" 
+        blurYFrom="10.0" blurYTo="0.0" 
+        color="0xFF9900"/>
+-->
+
+<mx:Canvas id="main" width="100%">
+	<mx:Image width="100%" height="30" visible="{!this.expanded}" includeInLayout="{!this.expanded}" source="{ImageLibrary.ExpanderCheckBackgroundClosed}" scaleContent="true" maintainAspectRatio="false"/>
+
+	<mx:Image width="100%" height="{this.expanded ? this.content_container.height + 50 : 30}" visible="{this.expanded}" includeInLayout="{this.expanded}" source="{ImageLibrary.ExpanderCheckBackgroundOpen}" scaleContent="true" maintainAspectRatio="false">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.5" distance="5" blurX="5" blurY="5"/>
+		</mx:filters>
+	</mx:Image>
+	
+
+
+	<mx:Canvas 
+		id="icon_area" backgroundAlpha="0" backgroundColor="#FFFFFF" click="{this.selected = this.selected == false}" 
+		width="100%" visible="{this.icon != null}" includeInLayout="{this.icon != null}" height="30">
+		<mx:Image alpha="0.5" visible="{!this.selected}" includeInLayout="{!this.selected}" source="{this.icon}" scaleContent="true" maintainAspectRatio="false" width="16" height="16" top="6" left="6">
+			<mx:filters>
+				<filters:ColorMatrixFilter matrix="{colorMatrix}"/>
+			</mx:filters>
+		</mx:Image>
+		
+		<mx:Image visible="{this.selected}" includeInLayout="{this.selected}" source="{this.icon}" scaleContent="true" maintainAspectRatio="false" width="16" height="16" top="6" left="6">
+			<mx:filters>
+				<filters:DropShadowFilter alpha="0.5" distance="2" blurX="2" blurY="2"/>
+			</mx:filters>
+		</mx:Image>
+	</mx:Canvas>
+
+	<mx:Canvas 
+		id="header_area" click="{this.expanded = this.expanded == false}"
+		width="100%" height="30" top="4" right="50" left="{this.icon != null ? 25 : 6}"/>
+	
+	<mx:Canvas id="content_container" visible="{this.expanded}" includeInLayout="{this.expanded}" left="15" right="15" top="30" minHeight="200">
+		<mx:Canvas 
+			id="content_area" width="100%" />
+	</mx:Canvas> 
+	
+</mx:Canvas>
+
+</customControl:CustomComponent>

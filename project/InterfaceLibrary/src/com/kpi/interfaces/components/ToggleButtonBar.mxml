@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox height="100%" 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	horizontalGap="0">
+    <mx:Metadata>
+       [Event( name="selectedItemChanged", type="flash.events.Event") ]
+    </mx:Metadata>
+    
+<mx:Script>
+	<![CDATA[
+		import com.kpi.common.view.BaseControl;
+	[Bindable]	
+	private var _dataProvider:Object;	
+	
+	[Bindable]
+	public var selectedItem:BaseControl;
+	
+	[Bindable]
+	private var selectedButton:ToggleButtonBarComponent;
+	
+	
+	
+	public function set dataProvider(val:Object):void {
+	   this._dataProvider = val;
+	   if(this._dataProvider is Array) {
+	   	var array:Array = this._dataProvider as Array;
+	   	this.removeAllChildren();
+	   	for each(var baseControl:BaseControl in array) {
+	   		var tbbc:ToggleButtonBarComponent = new ToggleButtonBarComponent();
+	   		tbbc.addEventListener(MouseEvent.CLICK, clickTab);
+	   		tbbc.baseControl = baseControl;
+	   		tbbc.isFirst = array[0] == baseControl;
+	   		if(tbbc.isFirst) {
+	   			this.selectItem(tbbc);
+	   		}
+	   		tbbc.isLast = array[array.length] == baseControl;
+	   		this.addChild(tbbc);
+	   	}
+	   }
+	}
+	public function get dataProvider():Object {
+	   return this._dataProvider;
+	}
+	
+	public function selectItem(tbbc:ToggleButtonBarComponent):void {
+		if(this.selectedButton != null) {
+			this.selectedButton.isSelected = false;
+		}
+		tbbc.isSelected = true;
+		this.selectedItem = tbbc.baseControl;
+		this.selectedButton = tbbc;
+	}
+	
+	private function clickTab(evt:MouseEvent):void {
+		var tbbc:ToggleButtonBarComponent = evt.currentTarget as ToggleButtonBarComponent;
+		this.selectItem(tbbc);
+		this.dispatchEvent(new Event("selectedItemChanged"));
+	}
+	
+	]]>
+</mx:Script>
+	
+</mx:HBox>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" xmlns:workordertemplate="com.kpi.cairngorm.view.controls.workordertemplate.*" xmlns:buttons="com.kpi.interfaces.buttons.*" xmlns:contractor="com.kpi.cairngorm.view.controls.contractor.*">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			
+		]]>
+	</mx:Script>
+		<mx:VBox verticalGap="0" width="100%">
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="top">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="ATM Technician" description="Installs ATM Machines" icon="{ImageLibrary.IconContractor}">
+						
+
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="middle">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="Security 1" description="Security" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+			
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="bottom">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="Security 2" description="Security" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+			
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="top">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="ATM Technician" description="Installs ATM Machines" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="middle">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="Security 1" description="Security" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+			
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="bottom">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="Security 2" description="Security" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+			
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="top">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="ATM Technician" description="Installs ATM Machines" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="middle">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="Security 1" description="Security" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+			
+			<workordertemplate:WorkOrderTemplateScheduleBlock position="bottom">
+				<workordertemplate:contractor>
+					<buttons:ScheduleButton width="175" title="Security 2" description="Security" icon="{ImageLibrary.IconContractor}">
+						
+							
+												
+					</buttons:ScheduleButton>
+				</workordertemplate:contractor>
+				<workordertemplate:tasks>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+					<buttons:ScheduleButton width="175" title="Attach Files" description="Photos/Scans" icon="{ImageLibrary.IconCamera}"/>
+				</workordertemplate:tasks>
+			</workordertemplate:WorkOrderTemplateScheduleBlock>
+		</mx:VBox>
+				
+</mx:Canvas>

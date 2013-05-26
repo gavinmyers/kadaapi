@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas  horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" top="32" 
+	height="100%" xmlns:expanders="com.kpi.interfaces.expanders.*" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			//import com.kpi.cairngorm.view.windows.WorkOrder;
+			import com.kpi.utilities.ImageLibrary;
+			
+			private function init():void {
+				this.verticalScrollPolicy = "on";	
+			}
+			
+			private function launch():void {
+				//var obj:WorkOrder = new WorkOrder();
+				//obj.open();
+			}
+		]]>
+	</mx:Script>
+	<mx:VBox id="main" height="100%" verticalGap="2" width="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+		
+		<expanders:Expander icon="{ImageLibrary.IconAlert}">
+			<expanders:header>
+				<mx:HBox>
+					
+					<mx:Label text="Today 5:15am" styleName="ListValue"/>
+					
+					<mx:HBox horizontalGap="0">
+						<mx:Label text="Frank Peter" styleName="ListValueHighlighted"/>
+						<mx:Label text=" did not arrive at " styleName="ListValue"/>
+						<mx:Label text="Mart-Co 25" styleName="ListValueHighlighted"/>
+						<mx:Label text=" (Donec adipiscing 4002)" styleName="ListValue"/>	
+					</mx:HBox>
+				</mx:HBox>
+				
+			</expanders:header>
+			<expanders:content>
+				<mx:Grid width="100%" >
+				<mx:GridRow width="100%">
+					<mx:GridItem>
+						<mx:HTML location="http://38.119.107.125/kadaapi/?action=directions" width="425" height="350" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+					</mx:GridItem>
+					<mx:GridItem width="100%">
+						<mx:VBox width="100%">
+							<mx:Text width="100%" text="Frank Peter was scheduled to arrive at Mart-Co 25 Today at 5:15am. At 6:30am the dispatcher contacted the Site and confirmed that Frank Peter did not arrive. " styleName="ListValue"/>
+							<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+							<mx:Button label="Contact Mart-Co 25"/>						
+							<mx:Button label="Contact Frank Peter"/>
+							<mx:Button click="launch()" label="Launch Work Order"/>
+						</mx:VBox>
+						
+					</mx:GridItem>
+				</mx:GridRow>
+				</mx:Grid>
+			</expanders:content>
+		</expanders:Expander>
+		
+		<expanders:Expander icon="{ImageLibrary.IconAlert}">
+			<expanders:header>
+				<mx:HBox>
+					
+					<mx:Label text="Today 6:30am" styleName="ListValue"/>
+					
+					<mx:HBox horizontalGap="0">
+						<mx:Label text="James Lawsom" styleName="ListValueHighlighted"/>
+						<mx:Label text=" did not arrive at " styleName="ListValue"/>
+						<mx:Label text="Mart-Co 41" styleName="ListValueHighlighted"/>
+						<mx:Label text=" (Donec adipiscing 4002)" styleName="ListValue"/>	
+					</mx:HBox>
+				</mx:HBox>
+				
+			</expanders:header>
+			
+			<expanders:content>
+				<mx:Grid width="100%" >
+				<mx:GridRow width="100%">
+					<mx:GridItem>
+						<mx:HTML location="http://38.119.107.125/kadaapi/?action=directions" width="425" height="350" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+					</mx:GridItem>
+					<mx:GridItem width="100%">
+						<mx:VBox width="100%">
+							<mx:Text width="100%" text="James Lawson was scheduled to arrive at Mart-Co 41 Today at 6:30am. At 7:30am the dispatcher contacted the Site and confirmed that James Lawson did not arrive. " styleName="ListValue"/>
+							<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+							<mx:Button label="Contact Mart-Co 41"/>						
+							<mx:Button label="Contact James Lawson"/>
+							<mx:Button click="launch()" label="Launch Work Order"/>
+						</mx:VBox>
+						
+					</mx:GridItem>
+				</mx:GridRow>
+				</mx:Grid>
+			</expanders:content>
+		</expanders:Expander>
+
+		<expanders:Expander icon="{ImageLibrary.IconAlert}"> 
+			<expanders:header>
+				<mx:HBox>
+					
+					<mx:Label text="Today 6:45am" styleName="ListValue"/>
+					
+					<mx:HBox horizontalGap="0">
+						<mx:Label text="Jim Jones" styleName="ListValueHighlighted"/>
+						<mx:Label text=" did not arrive at " styleName="ListValue"/>
+						<mx:Label text="Mart-Co 25" styleName="ListValueHighlighted"/>
+						<mx:Label text=" (Donec adipiscing 4002)" styleName="ListValue"/>	
+					</mx:HBox>
+				</mx:HBox>
+				
+			</expanders:header>
+			
+			<expanders:content>
+				<mx:Grid width="100%" >
+				<mx:GridRow width="100%">
+					<mx:GridItem>
+						<mx:HTML location="http://38.119.107.125/kadaapi/?action=directions" width="425" height="350" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+					</mx:GridItem>
+					<mx:GridItem width="100%">
+						<mx:VBox width="100%">
+							<mx:Text width="100%" text="Jim Jones was scheduled to arrive at Mart-Co 25 Today at 6:45am. At 7:37am the dispatcher contacted the Site and confirmed that Jim Jones did not arrive. " styleName="ListValue"/>
+							<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+							<mx:Button label="Contact Mart-Co 25"/>						
+							<mx:Button label="Contact Jim Jones"/>
+							<mx:Button click="launch()" label="Launch Work Order"/>
+						</mx:VBox>
+						
+					</mx:GridItem>
+				</mx:GridRow>
+				</mx:Grid>
+			</expanders:content>
+		</expanders:Expander>
+		
+		
+		<expanders:Expander icon="{ImageLibrary.IconStar}"> 
+			<expanders:header>
+				<mx:HBox>
+					
+					<mx:Label text="Today 6:45am" styleName="ListValue"/>
+					
+					<mx:HBox horizontalGap="0">
+						<mx:Label text="Larry Walker" styleName="ListValueHighlighted"/>
+						<mx:Label text=" arrived at " styleName="ListValue"/>
+						<mx:Label text="Mart-Co 1455" styleName="ListValueHighlighted"/>
+						<mx:Label text=" (Donec adipiscing 4002)" styleName="ListValue"/>	
+					</mx:HBox>
+				</mx:HBox>
+				
+			</expanders:header>
+			
+			<expanders:content>
+				<mx:Grid width="100%" >
+				<mx:GridRow width="100%">
+					<mx:GridItem>
+						<mx:HTML location="http://38.119.107.125/kadaapi/?action=directions" width="425" height="350" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+					</mx:GridItem>
+					<mx:GridItem width="100%">
+						<mx:VBox width="100%">
+							<mx:Text width="100%" text="Larry Walker was scheduled to arrive at Mart-Co 1455 Today at 6:45am. At 7:51am the dispatcher contacted the Site and confirmed that Larry Walker did arrive. " styleName="ListValue"/>
+							<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+							<mx:Button label="Contact Mart-Co 1455"/>						
+							<mx:Button label="Contact Larry Walker"/>
+							<mx:Button click="launch()" label="Launch Work Order"/>
+						</mx:VBox>
+						
+					</mx:GridItem>
+				</mx:GridRow>
+				</mx:Grid>
+			</expanders:content>
+		</expanders:Expander>
+		
+		<expanders:Expander icon="{ImageLibrary.IconInfo}"> 
+			<expanders:header>
+				<mx:HBox>
+					
+					<mx:Label text="Today 10:45am" styleName="ListValue"/>
+					
+					<mx:HBox horizontalGap="0">
+						<mx:Label text="Jeff Front" styleName="ListValueHighlighted"/>
+						<mx:Label text=" is scheduled to arrive at " styleName="ListValue"/>
+						<mx:Label text="Mart-Co 1111" styleName="ListValueHighlighted"/>
+						<mx:Label text=" (Donec adipiscing 4002)" styleName="ListValue"/>	
+					</mx:HBox>
+				</mx:HBox>
+				
+			</expanders:header>
+			
+			<expanders:content>
+				<mx:Grid width="100%" >
+				<mx:GridRow width="100%">
+					<mx:GridItem>
+						<mx:HTML location="http://38.119.107.125/kadaapi/?action=directions" width="425" height="350" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+					</mx:GridItem>
+					<mx:GridItem width="100%">
+						<mx:VBox width="100%">
+							<mx:Text width="100%" text="Jeff Front is scheduled to arrive at Mart-Co 1111 today at 10:45am" styleName="ListValue"/>
+							<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+							<mx:Button label="Contact Mart-Co 1111"/>						
+							<mx:Button label="Contact Jeff Front"/>
+							<mx:Button click="launch()" label="Launch Work Order"/>
+						</mx:VBox>
+						
+					</mx:GridItem>
+				</mx:GridRow>
+				</mx:Grid>
+			</expanders:content>
+		</expanders:Expander>
+		
+	</mx:VBox>
+	
+</mx:Canvas>

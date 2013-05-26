@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomWindow transparent="true" disabledOverlayAlpha="0" disabledColor="#000000"
+	systemChrome="none" 
+	showFlexChrome="false" 
+	minWidth="200" 
+	minHeight="200" 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="100%" 
+	creationComplete="init()" 
+	xmlns:filters="flash.filters.*" 
+	xmlns:customControl="com.kpi.interfaces.customControl.*" 
+	xmlns:buttons="com.kpi.interfaces.buttons.*" xmlns:components="com.kpi.interfaces.components.*">
+
+
+  <mx:Script>
+   <![CDATA[
+   	import mx.events.ItemClickEvent;
+   	import com.kpi.common.view.BaseControl;
+   	import mx.collections.ArrayCollection;
+   	import mx.events.FlexEvent;
+   	import mx.core.WindowedApplication;
+   	import mx.containers.TitleWindow;
+    import flash.display.Bitmap;
+    import mx.events.CloseEvent;
+   	import com.kpi.utilities.ImageLibrary;
+   	
+   	[Bindable]
+   	public var showClose:Boolean = false;
+   	
+	[Bindable]
+	public var content:Object;
+
+	[Bindable]	
+	private var _tabs:Object;	
+	
+	public function doDisable():void {
+		this.enabled = false;
+		blur.play();
+		fadeOut.play();
+	}
+	
+	public function doEnable():void {
+		this.enabled = true;
+		unblur.play();
+		fadeIn.play();
+	}
+	
+	public function set tabs(val:Object):void {
+	   this._tabs = val;
+	   if(this._tabs is Array) {
+		this.showTabs = true;
+		this.content = this._tabs[0];
+	   }
+	   /*
+	   Originally I was using Flex's togglebuttonbar and it doesn't like display objects
+	   so I built my own
+	   
+	   if(this._tabs is Array) {
+		this.showTabs = true;
+		this.tabCollection = new ArrayCollection();
+		for each(var bc:BaseControl in this._tabs) {
+			this.tabCollection.addItem(bc.toObject());
+		}
+		this.content = this._tabs[0];
+	   }
+	   */
+	}
+	public function get tabs():Object {
+	   return this._tabs;
+	}
+	
+	[Bindable]
+	private var tabCollection:ArrayCollection = new ArrayCollection();
+	
+	[Bindable]
+	private var showTabs:Boolean = false;
+		
+   	[Bindable]
+   	public var application:WindowedApplication;
+   	
+    public function init():void {
+
+         // Move the app when the panel is dragged
+    	dragArea.addEventListener( MouseEvent.MOUSE_DOWN, mouseDown );
+    	this.bind("content",this.content_area,null);
+
+    }
+   public function mouseDown(event:MouseEvent):void {
+       stage.nativeWindow.startMove();
+       
+    }
+        
+    public function doClose():void {
+       
+    }
+    
+    public function tabChange():void {
+    	this.content = toggleButtonBar.selectedItem;
+    }
+    
+   ]]>
+  </mx:Script>
+
+
+    <mx:Blur id="blur" duration="1000" target="{this.main_container}" 
+        blurXFrom="0.0" blurXTo="3.0" 
+        blurYFrom="0.0" blurYTo="3.0"/>
+    <mx:Blur id="unblur" duration="1000" target="{this.main_container}"  
+        blurXFrom="3.0" blurXTo="0.0" 
+        blurYFrom="3.0" blurYTo="0.0"/>
+        
+    <mx:Fade id="fadeOut" duration="1000" alphaFrom="1.0" alphaTo="0.9" target="{this.main_container}"/>
+    <mx:Fade id="fadeIn" duration="1000" alphaFrom="0.9" alphaTo="1.0" target="{this.main_container}"/>
+
+
+        
+<mx:Canvas id="main_container" width="100%" height="100%" >
+        
+	<mx:Image visible="{!this.showTabs}" includeInLayout="{!this.showTabs}" left="10" top="10" right="10" bottom="10" source="{ImageLibrary.Window}" width="100%" height="100%" maintainAspectRatio="false" scaleContent="true">
+		<mx:filters>
+			<filters:DropShadowFilter blurX="10" blurY="10" alpha="0.8"/>
+		</mx:filters>
+	</mx:Image>
+	
+	<mx:Image visible="{this.showTabs}" includeInLayout="{this.showTabs}" left="10" top="10" right="10" bottom="10" source="{ImageLibrary.WindowTab}" width="100%" height="100%" maintainAspectRatio="false" scaleContent="true">
+		<mx:filters>
+			<filters:DropShadowFilter blurX="10" blurY="10" alpha="0.8"/>
+		</mx:filters>
+	</mx:Image>
+	
+	<mx:Canvas backgroundAlpha="0" backgroundColor="red" height="45" width="100%" top="0" id="dragArea">
+		<mx:Label text="{this.title}" top="15" styleName="WindowTitleBarHeader" left="15"/>
+		<buttons:WindowClose right="15" top="20" visible="{this.showClose}" includeInLayout="{this.showClose}" click="{this.dispatchEvent(new Event(Event.CLOSE))}"/>
+	</mx:Canvas>
+	
+	<mx:Canvas 
+		id="content_area" 
+		width="100%" 
+		height="100%" 
+		top="{this.showTabs ? 83 : 56}" 
+		left="26" 
+		right="24" 
+		bottom="28"/>
+		
+	<mx:Canvas 
+		visible="{this.showTabs}" 
+		includeInLayout="{this.showTabs}"
+		id="tab_bar_area"
+		width="100%"
+		height="24"
+		top="47"
+		left="13"
+		right="15">
+		<!--
+        <mx:ToggleButtonBar itemClick="tabChange(event)" id="toggleButtonBar" dataProvider="{this.tabCollection}">
+        </mx:ToggleButtonBar>
+        -->
+        <components:ToggleButtonBar id="toggleButtonBar" selectedItemChanged="tabChange()" dataProvider="{this._tabs}"/>
+	</mx:Canvas>
+		
+</mx:Canvas>
+
+</customControl:CustomWindow>

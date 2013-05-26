@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionScriptProperties mainApplicationPath="Modules.mxml" version="3">
+<compiler additionalCompilerArguments="-locale en_US" copyDependentFiles="true" enableModuleDebug="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersion="9.0.124" htmlPlayerVersionCheck="true" outputFolderPath="bin-debug" sourceFolderPath="src" strict="true" useApolloConfig="true" verifyDigests="true" warn="true">
+<compilerSourcePath/>
+<libraryPath defaultLinkType="1">
+<libraryPathEntry kind="4" path=""/>
+<libraryPathEntry kind="1" linkType="1" path="libs"/>
+<libraryPathEntry kind="3" linkType="1" path="/AssetLibrary/bin/AssetLibrary.swc" useDefaultLinkType="false"/>
+<libraryPathEntry kind="3" linkType="1" path="/InterfaceLibrary/bin/InterfaceLibrary.swc" useDefaultLinkType="false"/>
+<libraryPathEntry kind="3" linkType="1" path="/DataLibrary/bin/DataLibrary.swc" useDefaultLinkType="false"/>
+<libraryPathEntry kind="3" linkType="1" path="/ModuleLibrary/bin/ModuleLibrary.swc" useDefaultLinkType="false"/>
+</libraryPath>
+<sourceAttachmentPath/>
+</compiler>
+<applications>
+<application path="Modules.mxml"/>
+</applications>
+<modules>
+<module destPath="com/kpi/cairngorm/view/modules/Calendar.swf" optimize="false" sourcePath="src/com/kpi/cairngorm/view/modules/Calendar.mxml"/>
+</modules>
+<buildCSSFiles/>
+</actionScriptProperties>

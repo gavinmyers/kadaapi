@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" xmlns:expanders="com.kpi.interfaces.expanders.*" xmlns:project="com.kpi.cairngorm.view.controls.project.*" xmlns:buttons="com.kpi.interfaces.buttons.*" xmlns:tooltips="com.kpi.interfaces.tooltips.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.core.ScrollPolicy;
+			import com.kpi.cairngorm.view.windows.Project;
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function constructor():void {
+				this.title = "Projects";
+				this.icon = ImageLibrary.IconBrowser;
+			}
+			
+			public override function show(evt:CairngormEvent):void {
+				
+			}
+			
+
+
+		]]>
+	</mx:Script>
+	
+	<core:content>
+		<mx:Grid width="100%" height="100%">
+			<mx:GridRow width="100%">
+				<mx:GridItem width="100%">
+					<mx:Canvas width="100%">
+						<buttons:ActionGear right="0">
+							<buttons:actionToolTipContent>
+								<mx:VBox>
+									<mx:Button width="150" label="create project"/>
+								</mx:VBox>
+							</buttons:actionToolTipContent>
+						</buttons:ActionGear>
+					</mx:Canvas>
+				</mx:GridItem>
+			</mx:GridRow>
+			<mx:GridRow width="100%" height="100%">
+				<mx:GridItem width="100%" height="100%" >
+		<mx:Canvas id="scroll_section" horizontalScrollPolicy="off" verticalScrollPolicy="auto" width="100%" height="100%">
+			<mx:VBox id="scroll_content" height="100%" verticalGap="2" left="0" right="{this.scroll_content.height > this.scroll_section.height ? 20 : 0}">
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Canvas width="100%">
+							<mx:Label text="Lorem Project" styleName="ListValueHighlighted" left="0"/>
+							<mx:Image top="5" source="{ImageLibrary.IconProjectStatus0}" right="0"/>
+						</mx:Canvas>
+					</expanders:header>
+					<expanders:content>
+						<project:ProjectExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+				
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Canvas width="100%">
+							<mx:Label text="Ipsum Project" styleName="ListValueHighlighted" left="0"/>
+							<mx:Image top="5" source="{ImageLibrary.IconProjectStatus0}" right="0"/>
+						</mx:Canvas>
+					</expanders:header>
+					<expanders:content>
+						<project:ProjectExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+				
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Canvas width="100%">
+							<mx:Label text="Donec adipiscing 4002" styleName="ListValueHighlighted" left="0"/>
+							<mx:Image top="5" source="{ImageLibrary.IconProjectStatus2}" right="0"/>
+						</mx:Canvas>
+					</expanders:header>
+					<expanders:content>
+						<project:ProjectExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+				
+				<expanders:Expander>
+					<expanders:header>
+						<mx:Canvas width="100%">
+							<mx:Label text="Donec adipiscing 4012" styleName="ListValueHighlighted" left="0"/>
+							<mx:Image top="5" source="{ImageLibrary.IconProjectStatus4}" right="0"/>
+						</mx:Canvas>
+					</expanders:header>
+					<expanders:content>
+						<project:ProjectExpanderDetails/>
+					</expanders:content>
+				</expanders:Expander>
+				
+			</mx:VBox>
+		</mx:Canvas>
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+
+
+	</core:content>
+	
+</core:Control>
+

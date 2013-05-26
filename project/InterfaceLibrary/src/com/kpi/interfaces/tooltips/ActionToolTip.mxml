@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomComponent minWidth="300" minHeight="300" width="{this.content_area.width}" height="{this.content_area.height}" xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()" xmlns:filters="flash.filters.*" xmlns:customControl="com.kpi.interfaces.customControl.*">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			
+			[Bindable]
+			public var content:Object;
+			
+		    public function init():void {
+		         // Move the app when the panel is dragged
+		    	this.bind("content",this.content_area,null);
+		    	
+		    
+		    }
+		]]>
+	</mx:Script>
+		
+	<mx:Image includeInLayout="false" width="100%" height="100%" scaleContent="true" maintainAspectRatio="false" source="{ImageLibrary.ToolTipTopLeft}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.8" distance="3"/>
+		</mx:filters>
+	</mx:Image>
+	<mx:HBox id="content_area" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
+</customControl:CustomComponent>

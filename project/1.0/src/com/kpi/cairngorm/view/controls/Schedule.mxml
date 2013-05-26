@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" xmlns:buttons="com.kpi.interfaces.buttons.*" xmlns:contractor="com.kpi.cairngorm.view.controls.contractor.*" xmlns:schedule="com.kpi.cairngorm.view.controls.schedule.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.interfaces.buttons.ScheduleButton;
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function constructor():void {
+				this.title = "Schedule";
+				this.icon = ImageLibrary.IconClock;
+			}
+			
+			public override function show(evt:CairngormEvent):void {
+				
+			}
+		]]>
+	</mx:Script>
+	<core:content>
+		<mx:Grid width="100%" height="100%">
+		
+			<mx:GridRow width="100%">
+				<mx:GridItem colSpan="6">
+				<mx:VBox width="100%">
+					<mx:Label text="Status" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Text width="100%" text="Duis auctor mauris vel mi lobortis et vehicula nulla convallis. Phasellus et leo nec tellus pretium malesuada. Nunc urna erat, commodo nec laoreet id, semper id felis. Donec porta mollis vestibulum. Curabitur lacinia venenatis convallis. Nam sollicitudin, erat id" textAlign="left" styleName="ListValue"/>
+				</mx:VBox>
+				</mx:GridItem>
+			</mx:GridRow>
+			
+		
+			<mx:GridRow width="100%">
+				<mx:GridItem colSpan="6">
+				<mx:Box width="100%" height="100%" direction="horizontal" >
+					<buttons:ScheduleButton status="{ScheduleButton.STATUS_DISABLED}" width="155"
+						icon="{ImageLibrary.IconInfo}" 
+						title="Private" description="not viewable" />
+						
+					<buttons:ScheduleButton status="{ScheduleButton.STATUS_DISABLED}" width="155" 
+						icon="{ImageLibrary.IconContractor}" description="viewable" 
+						title="Public" />
+						
+					<buttons:ScheduleButton width="155" status="{ScheduleButton.STATUS_DISABLED}"
+						icon="{ImageLibrary.IconUsers}" description="contractors assigned" 
+						title="Accepted" />
+						
+					<buttons:ScheduleButton width="155" status="{ScheduleButton.STATUS_COMPLETE}"
+						icon="{ImageLibrary.IconCalculator}" description="work has begun"
+						title="In Progress" />
+						
+					<buttons:ScheduleButton width="155" 
+						icon="{ImageLibrary.IconCheck}" description="all tasks complete"
+						title="Completed" />
+						
+					<buttons:ScheduleButton width="155" 
+						icon="{ImageLibrary.IconAlert}" description="work order cancelled" 
+						title="Cancelled" />
+				</mx:Box>
+				</mx:GridItem>
+			</mx:GridRow>
+			
+			
+			<mx:GridRow width="100%">
+				<mx:GridItem colSpan="6">
+				<mx:VBox width="100%">
+					<mx:Label text="Schedule" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Text width="100%" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean velit urna, consectetur in fringilla nec, pretium in tortor. Aenean eu erat et nulla aliquam bibendum. Nullam dignissim, felis auctor gravida elementum, elit sem auctor erat, id lacinia m" textAlign="left" styleName="ListValue"/>
+				</mx:VBox>
+				</mx:GridItem>
+			</mx:GridRow>
+			
+			<mx:GridRow width="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.1">
+				<mx:GridItem>
+					<buttons:ScheduleButton width="175" title="ATM Technician" description="Roy Phillips" icon="{ImageLibrary.IconContractor}">
+						<buttons:actionToolTipContent>
+							<contractor:ContractorScheduleDetails/>
+						</buttons:actionToolTipContent>						
+					</buttons:ScheduleButton>					
+				</mx:GridItem>
+				<mx:GridItem>
+					<buttons:ScheduleButton status="{ScheduleButton.STATUS_COMPLETE}" title="01/01/2009" description="10:45AM" icon="{ImageLibrary.IconDate}">
+						<buttons:actionToolTipContent>
+							<schedule:ScheduleStatusCompleteDetails/>
+						</buttons:actionToolTipContent>			
+					</buttons:ScheduleButton>
+				</mx:GridItem>
+				<mx:GridItem>
+					<buttons:ScheduleButton status="{ScheduleButton.STATUS_WARNING}" title="01/04/2009" description="08:15AM" icon="{ImageLibrary.IconDate}">
+						<buttons:actionToolTipContent>
+							<schedule:ScheduleStatusWarningDetails/>
+						</buttons:actionToolTipContent>							
+					</buttons:ScheduleButton>
+				</mx:GridItem>
+				<mx:GridItem>
+					<buttons:ScheduleButton status="{ScheduleButton.STATUS_DISABLED}" title="01/11/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+						<buttons:actionToolTipContent>
+							<schedule:ScheduleStatusDisabledDetails/>
+						</buttons:actionToolTipContent>							
+					</buttons:ScheduleButton>
+				</mx:GridItem>
+			</mx:GridRow>
+			
+			<mx:GridRow width="100%">
+				<mx:GridItem>
+					<buttons:ScheduleButton width="175" title="Security 1" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+						<buttons:actionToolTipContent>
+							<contractor:ContractorScheduleDetails/>
+						</buttons:actionToolTipContent>						
+					</buttons:ScheduleButton>	
+				</mx:GridItem>
+				
+				<mx:GridItem>					
+				</mx:GridItem>
+				
+				<mx:GridItem>
+					<buttons:ScheduleButton status="{ScheduleButton.STATUS_ERROR}" title="01/04/2009" description="08:15AM" icon="{ImageLibrary.IconDate}">
+						<buttons:actionToolTipContent>
+							<schedule:ScheduleStatusErrorDetails/>
+						</buttons:actionToolTipContent>	
+					</buttons:ScheduleButton>
+				</mx:GridItem>
+				
+				<mx:GridItem>					
+				</mx:GridItem>
+				
+				<mx:GridItem>
+					<buttons:ScheduleButton title="01/21/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+						<buttons:actionToolTipContent>
+							<schedule:ScheduleStatusPendingDetails/>
+						</buttons:actionToolTipContent>		
+					</buttons:ScheduleButton>
+				</mx:GridItem>
+			</mx:GridRow>
+			
+			<mx:GridRow width="100%"  backgroundColor="#FFFFFF" backgroundAlpha="0.1">
+				<mx:GridItem>
+					<buttons:ScheduleButton width="175" title="Security 2" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+						<buttons:actionToolTipContent>
+							<contractor:ContractorScheduleDetails/>
+						</buttons:actionToolTipContent>						
+					</buttons:ScheduleButton>					
+				</mx:GridItem>
+				
+				<mx:GridItem>					
+				</mx:GridItem>
+				
+				<mx:GridItem>
+					<buttons:ScheduleButton status="{ScheduleButton.STATUS_COMPLETE}" title="01/04/2009" description="08:15AM" icon="{ImageLibrary.IconDate}">
+						<buttons:actionToolTipContent>
+							<schedule:ScheduleStatusCompleteDetails/>
+						</buttons:actionToolTipContent>			
+					</buttons:ScheduleButton>
+				</mx:GridItem>
+				
+				<mx:GridItem>					
+				</mx:GridItem>
+				
+				<mx:GridItem>					
+				</mx:GridItem>
+			</mx:GridRow>
+			
+			<mx:GridRow width="100%">
+				<mx:GridItem>
+					<buttons:ScheduleButton width="175" title="ATM Technician" description="Larry Walker" icon="{ImageLibrary.IconContractor}">
+						<buttons:actionToolTipContent>
+							<contractor:ContractorScheduleDetails/>
+						</buttons:actionToolTipContent>						
+					</buttons:ScheduleButton>					
+				</mx:GridItem>
+				
+				<mx:GridItem>
+				</mx:GridItem>
+				
+				<mx:GridItem>
+				</mx:GridItem>
+				
+				<mx:GridItem>					
+				</mx:GridItem>
+				
+				<mx:GridItem>					
+				</mx:GridItem>
+				
+				<mx:GridItem>
+					<buttons:ScheduleButton title="01/31/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+						<buttons:actionToolTipContent>
+							<schedule:ScheduleStatusPendingDetails/>
+						</buttons:actionToolTipContent>		
+					</buttons:ScheduleButton>
+				</mx:GridItem>
+			</mx:GridRow>
+			
+			<mx:GridRow width="100%">
+				<mx:GridItem colSpan="6">
+				<mx:VBox width="100%">
+					<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Text width="100%" text="Duis auctor mauris vel mi lobortis et vehicula nulla convallis. Phasellus et leo nec tellus pretium malesuada. Nunc urna erat, commodo nec laoreet id, semper id felis. Donec porta mollis vestibulum. Curabitur lacinia venenatis convallis. Nam sollicitudin, erat id" textAlign="left" styleName="ListValue"/>
+					
+					<mx:Button label="Add Contractor"/>
+					<mx:Button label="Add Dispatch"/>
+				
+				</mx:VBox>
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+	</core:content>
+	
+</core:Control>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Page showClose="true"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="1024" height="768" 
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" xmlns:controls="com.kpi.cairngorm.view.controls.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function show(evt:CairngormEvent):void {
+				this.title = "Lorem Project";
+			}
+			
+			public override function hide(evt:CairngormEvent):void {
+				this.global.model.session.application.close();
+				super.hide(evt);
+			}
+		]]>
+	</mx:Script>
+	<core:tabs>
+		<controls:Actions id="calendar"/>
+		<controls:WorkOrders id="workorders"/>
+		<controls:Contractors id="contractors"/>
+		<controls:Sites id="sites"/>
+		<!--
+		<controls:IVR id="ivr"/>
+		<controls:Invoicing id="invoicing"/>
+		-->
+		<controls:Plugins id="plugins"/>
+		<controls:Reports id="reports"/>
+	</core:tabs>
+	
+</core:Page>
+

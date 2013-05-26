@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomComponent width="100%" height="{this.main.height}"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	creationComplete="init()"
+	xmlns:filters="flash.filters.*" 
+	xmlns:customControl="com.kpi.interfaces.customControl.*" 
+	xmlns:buttons="com.kpi.interfaces.buttons.*"
+	 backgroundColor="#FFFFFF" backgroundAlpha="0">
+
+  <mx:Script>
+   <![CDATA[
+   	import com.kpi.utilities.ImageLibrary;
+   	
+   	
+	[Bindable]
+	public var content:Object;
+	
+	[Bindable]
+	public var header:Object;
+		
+	[Bindable]
+	public var expanded:Boolean = false;
+   	
+    public function init():void {
+         // Move the app when the panel is dragged
+    	this.bind("content",this.content_area,null);
+    	this.bind("header",this.header_area,null);
+    	
+    
+    }
+     
+   ]]>
+  </mx:Script>
+
+<mx:Canvas id="main" width="100%">
+	<mx:Image width="100%" height="30" visible="{!this.expanded}" includeInLayout="{!this.expanded}" source="{ImageLibrary.ExpanderBackgroundClosed}" scaleContent="true" maintainAspectRatio="false"/>
+
+	<mx:Image width="100%" height="{this.expanded ? this.content_container.height + 50 : 30}" visible="{this.expanded}" includeInLayout="{this.expanded}" source="{ImageLibrary.ExpanderBackgroundOpen}" scaleContent="true" maintainAspectRatio="false">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.5" distance="10" blurX="10" blurY="10"/>
+		</mx:filters>
+	</mx:Image>
+
+	<mx:Canvas 
+		id="icon_area" 
+		width="100%" visible="{this.icon != null}" includeInLayout="{this.icon != null}" height="30">
+		<mx:Image source="{this.icon}" scaleContent="true" maintainAspectRatio="false" width="16" height="16" top="6" left="6"/>
+	</mx:Canvas>
+
+	<mx:Canvas 
+		id="header_area" click="{this.expanded = this.expanded == false}"
+		width="100%" height="30" top="4" right="50" left="{this.icon != null ? 25 : 6}"/>
+	
+	<mx:Canvas id="content_container" visible="{this.expanded}" includeInLayout="{this.expanded}" left="15" right="15" top="30" minHeight="200">
+		<mx:Canvas 
+			id="content_area" width="100%" />
+	</mx:Canvas> 
+	
+</mx:Canvas>
+
+</customControl:CustomComponent>

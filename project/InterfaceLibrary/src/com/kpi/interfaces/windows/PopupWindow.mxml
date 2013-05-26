@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomComponent 
+
+	minWidth="200" 
+	minHeight="200" 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="100%" 
+	creationComplete="__init()" 
+	xmlns:filters="flash.filters.*" 
+	xmlns:customControl="com.kpi.interfaces.customControl.*" 
+	xmlns:buttons="com.kpi.interfaces.buttons.*" 
+	xmlns:components="com.kpi.interfaces.components.*">
+
+
+  <mx:Script>
+   <![CDATA[
+   	import mx.events.ItemClickEvent;
+   	import com.kpi.common.view.BaseControl;
+   	import mx.collections.ArrayCollection;
+   	import mx.events.FlexEvent;
+   	import mx.core.WindowedApplication;
+   	import mx.containers.TitleWindow;
+    import flash.display.Bitmap;
+    import mx.events.CloseEvent;
+   	import com.kpi.utilities.ImageLibrary;
+   	
+   	[Bindable]
+   	public var showClose:Boolean = true;
+   	
+	[Bindable]
+	public var content:Object;
+	
+	[Bindable]
+	public var leftButtons:Object;
+	
+	[Bindable]
+	public var rightButtons:Object;
+	
+	[Bindable]
+	public var title:String;
+
+
+		
+   	[Bindable]
+   	public var application:WindowedApplication;
+   	
+    public function __init():void {
+
+         // Move the app when the panel is dragged
+    	dragArea.addEventListener( MouseEvent.MOUSE_DOWN, mouseDown );
+    	this.bind("content",this.content_area,null);
+    	this.bind("leftButtons",this.left_button_area,null);
+    	this.bind("rightButtons",this.right_button_area,null);
+
+    }
+   public function mouseDown(event:MouseEvent):void {
+       stage.nativeWindow.startMove();
+       
+    }
+        
+    public function doClose():void {
+       
+    }
+    
+   ]]>
+  </mx:Script>
+
+
+<mx:Canvas width="100%" height="100%">
+	<mx:Image left="10" top="10" right="10" bottom="10" source="{ImageLibrary.WindowPopup}" width="100%" height="100%" maintainAspectRatio="false" scaleContent="true">
+		<mx:filters>
+			<filters:DropShadowFilter blurX="10" blurY="10" alpha="0.8"/>
+		</mx:filters>
+	</mx:Image>
+
+	<mx:Canvas backgroundAlpha="0" backgroundColor="red" height="45" width="100%" top="0" id="dragArea">
+		<mx:Label text="{this.title}" top="10" styleName="WindowTitleBarHeader" left="15"/>
+		<buttons:PopupWindowClose right="15" top="17" visible="{this.showClose}" includeInLayout="{this.showClose}" click="{this.dispatchEvent(new Event(Event.CLOSE))}"/>
+	</mx:Canvas>
+	
+	<mx:Canvas 
+		id="content_area" 
+		width="100%" 
+		height="100%" 
+		top="46" 
+		left="26" 
+		right="24" 
+		bottom="58"/>
+		
+	<mx:Canvas
+		width="100%" 
+		height="25"
+		bottom="15"
+		left="15"
+		right="15">
+		<mx:HBox id="left_button_area" left="0"/>
+		<mx:HBox id="right_button_area" right="0"/>
+	</mx:Canvas>
+		
+</mx:Canvas>
+
+</customControl:CustomComponent>

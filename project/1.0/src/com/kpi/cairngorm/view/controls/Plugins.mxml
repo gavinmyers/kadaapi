@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" xmlns:buttons="com.kpi.interfaces.buttons.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function constructor():void {
+				this.title = "Plugins";
+				this.icon = ImageLibrary.IconPlugins;
+			}
+			
+			
+			public override function show(evt:CairngormEvent):void {
+
+			}
+		]]>
+	</mx:Script>
+	<core:content>
+		<mx:Box width="100%" height="100%" direction="vertical" >
+			<buttons:ActionButton 
+				icon="{ImageLibrary.IconBlocks}" 
+				title="lorem 1.0.12" 
+				description="Ut vel ligula a magna dapibus suscipit. Proin turpis metus, interdum non lacinia eu, venenatis dignissim nisi. Mauris ut bibendum"/>
+				
+			<buttons:ActionButton 
+				icon="{ImageLibrary.IconCalculator}" 
+				title="ipsum 5" 
+				description="Suspendisse potenti. Quisque imperdiet, est commodo mollis rhoncus"/>
+		</mx:Box>
+	</core:content>
+	
+</core:Control>
+

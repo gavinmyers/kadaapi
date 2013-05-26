@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off" 
+	backgroundColor="{this.date.getMonth() != this.currentDate.getMonth() ? 0xffffff : 0x0c184c}" 
+	backgroundAlpha="{this.date.getMonth() != this.currentDate.getMonth() ? 0.35 : 0.25}" 
+	borderColor="{this.date.getTime() == this.currentDate.getTime() ? 0xffb156 : 0x4a5790}" 
+	borderThickness="1" borderStyle="solid">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			[Bindable]
+			public var date:Date = new Date();
+			
+			[Bindable]
+			public var currentDate:Date = new Date();
+			
+			[Bindable]
+			public var selectedDate:Date = new Date();
+			
+			[Bindable]
+			public var hasDispatch:Boolean;
+			
+			[Bindable]
+			public var hasDispatchAlert:Boolean;
+			
+			
+		]]>
+	</mx:Script>
+	<mx:Canvas top="0" left="0" width="18" height="14" borderColor="#8c9de9" borderThickness="1" borderStyle="solid" backgroundColor="#8c9de9" backgroundAlpha="0.25">
+		<mx:Label text="{date.getDate()}" styleName="CalendarDayNumber" width="100%" height="100%" textAlign="center" verticalCenter="1"/>
+	</mx:Canvas>
+	<mx:Grid verticalGap="0" horizontalGap="0" top="20" bottom="5" left="0" right="0">
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				<mx:Label text="midnight" styleName="CalendarTimePrimary"/>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%">
+			<mx:GridItem width="100%" height="100%">
+				<mx:Canvas width="100%" height="100%">
+					<mx:Image scaleContent="true" right="5" maintainAspectRatio="false" left="0" height="100%" source="{ImageLibrary.CalendarWeekdayBackground}"/>
+					<mx:Label left="5" right="15" truncateToFit="true" text="4:30am Mart-Co" styleName="CalendarWeekdayDispatch" />					
+				</mx:Canvas>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				<mx:Label text="4am" styleName="CalendarTimePrimary"/>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				<mx:Label text="8am" styleName="CalendarTimePrimary"/>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				<mx:Label text="noon" styleName="CalendarTimePrimary"/>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				<mx:Label text="4pm" styleName="CalendarTimePrimary"/>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				<mx:Label text="8pm" styleName="CalendarTimePrimary"/>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" backgroundColor="#FFFFFF" backgroundAlpha="0.05">
+			<mx:GridItem width="100%" height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%"  height="100%" >
+			<mx:GridItem width="100%"  height="100%">
+				 
+			</mx:GridItem>
+		</mx:GridRow>
+	</mx:Grid>
+	
+	
+</mx:Canvas>

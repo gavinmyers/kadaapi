@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="300">
+    <mx:Script><![CDATA[
+    	import com.kpi.cairngorm.view.windows.WorkOrder;
+    	import com.kpi.cairngorm.view.windows.Project;
+    import mx.collections.ArrayCollection;
+   
+			private function launch():void {
+				//var obj:WorkOrder = new WorkOrder();
+				//obj.open();
+			}
+        ]]>
+</mx:Script>
+
+	<mx:Grid width="100%">
+		<mx:GridRow width="100%">
+		
+	
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Info" styleName="ListValueBlackHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Grid width="100%">
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Contact" textAlign="right" styleName="ListValueBlackHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="Frank Peter" textAlign="left" styleName="ListValueBlack"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Phone" textAlign="right" styleName="ListValueBlackHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="(651) 111-1212" textAlign="left" styleName="ListValueBlack"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Cell" textAlign="right" styleName="ListValueBlackHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="(651) 222-3434" textAlign="left" styleName="ListValueBlack"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+												
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Address" textAlign="right" styleName="ListValueBlackHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:VBox verticalGap="0" width="100%">
+									<mx:Label width="100%" text="1234 84th St"  textAlign="left" styleName="ListValueBlack"/>	
+									<mx:Label width="100%" text="Coon Rapids, MN 55433"  textAlign="left" styleName="ListValueBlack"/>
+								</mx:VBox>
+																
+							</mx:GridItem>
+						</mx:GridRow>
+
+					</mx:Grid>
+				</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%">
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Actions" styleName="ListValueBlackHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Button label="Launch Site" click="launch()"/>
+				</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+	</mx:Grid>
+</mx:Canvas>

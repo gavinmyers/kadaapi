@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.module.Module;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			import com.kpi.module.ModuleLibrary;
+			import com.kpi.module.ModuleRequest;
+			import com.kpi.cairngorm.global.Global;
+			private function init():void {
+				var mr:ModuleRequest = new ModuleRequest("com/kpi/cairngorm/view/modules/Calendar.swf", "CALENDAR");
+				ModuleLibrary.loadModule(this.moduleLoader, mr);
+			}
+			
+
+		]]>
+	</mx:Script>
+	<mx:VBox>
+		<mx:ModuleLoader id="moduleLoader"/>
+		<mx:Button click="trace(this.moduleLoader.child.height)"/>
+	</mx:VBox>
+	
+</mx:Canvas>

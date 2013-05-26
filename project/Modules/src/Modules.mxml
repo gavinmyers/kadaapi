@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="init()" xmlns:local="*">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.cairngorm.global.Global;
+			private function init():void {
+				var g:Global = new Global();
+				g.model.session.version = "1.5";
+
+			}
+			
+			private function version():void {
+				var g:Global = new Global();
+				g.model.session.version = new Date().getTime() + "";				
+			}
+		]]>
+	</mx:Script>
+	<mx:VBox>
+		<local:Load width="200" height="200"/>
+	
+		<mx:Button click="version()"/>		
+	</mx:VBox>
+	
+</mx:WindowedApplication>

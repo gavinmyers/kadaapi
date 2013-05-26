@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="300">
+    <mx:Script><![CDATA[
+    	import com.kpi.utilities.ImageLibrary;
+    	import com.kpi.cairngorm.view.windows.WorkOrder;
+    	import com.kpi.cairngorm.view.windows.Project;
+    import mx.collections.ArrayCollection;
+   
+			private function launch():void {
+				//var obj:WorkOrder = new WorkOrder();
+				//obj.open();
+			}
+        ]]>
+</mx:Script>
+
+	<mx:Grid width="100%" >
+		<mx:GridRow width="100%">
+		
+	
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Info" styleName="ListValueBlackHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Grid width="100%">
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Status" textAlign="right" styleName="ListValueBlackHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="Error" textAlign="left" styleName="ListValueBlack"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Alerts" textAlign="right" styleName="ListValueBlackHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:VBox>
+									<mx:Label width="100%" text="Contractor did not arrive on site" textAlign="left" styleName="ListValueBlack"/>	
+								</mx:VBox>
+																
+							</mx:GridItem>
+						</mx:GridRow>
+					</mx:Grid>
+				</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+		
+		<mx:GridRow width="100%">
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Tasks" styleName="ListValueBlackHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Grid width="100%">
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="100%" colSpan="2">
+								<mx:VBox>
+									<mx:HBox>
+										<mx:Image source="{ImageLibrary.IconAlert}" height="18" width="18"/>
+										<mx:Label width="100%" text="Complete Dispatch Form"  textAlign="right" styleName="ListValueBlackHighlighted"/>
+									</mx:HBox>
+									
+									<mx:HBox>
+										<mx:Image source="{ImageLibrary.IconAlert}" height="18" width="18"/>
+										<mx:Label width="100%" text="Photo 1 (ATM Face)"  textAlign="right" styleName="ListValueBlackHighlighted"/>
+									</mx:HBox>
+									
+									<mx:HBox>
+										<mx:Image source="{ImageLibrary.IconAlert}" height="18" width="18"/>
+										<mx:Label width="100%" text="Photo 2 (ATM Controller)"  textAlign="right" styleName="ListValueBlackHighlighted"/>
+									</mx:HBox>
+									
+									<mx:HBox>
+										<mx:Image source="{ImageLibrary.IconAlert}" height="18" width="18"/>
+										<mx:Label width="100%" text="Photo 3 (ATM Widget)"  textAlign="right" styleName="ListValueBlackHighlighted"/>
+									</mx:HBox>
+										
+								</mx:VBox>
+																
+							</mx:GridItem>
+						</mx:GridRow>
+						
+
+					</mx:Grid>
+				</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%">
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Actions" styleName="ListValueBlackHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Button label="View Dispatch" click="launch()"/>
+					<mx:Button label="Resolve Error 'Contractor did not arrive on site'" click="launch()"/>
+				</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+	</mx:Grid>
+</mx:Canvas>

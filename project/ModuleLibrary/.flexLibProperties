@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="com.kpi.module.Module"/>
+<classEntry path="com.kpi.module.ModuleLibrary"/>
+<classEntry path="com.kpi.module.ModuleRequest"/>
+<classEntry path="com.kpi.module.IModule"/>
+</includeClasses>
+<includeResources/>
+<namespaceManifests/>
+</flexLibProperties>

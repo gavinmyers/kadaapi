@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomComponent width="34" height="31" 
+	click="showToolTip()"
+	creationComplete="init()"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	horizontalScrollPolicy="off" 
+	verticalScrollPolicy="off" 
+	xmlns:filters="flash.filters.*" 
+	xmlns:customControl="com.kpi.interfaces.customControl.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.managers.ToolTipManager;
+			import com.kpi.interfaces.tooltips.ActionToolTip;
+			import mx.events.ToolTipEvent;
+			import com.kpi.utilities.ImageLibrary;
+			
+
+			[Bindable]
+			public var actionToolTipContent:Object;
+			
+			private var actionToolTip:ActionToolTip = new ActionToolTip();
+			
+			private function showToolTip():void {
+				ToolTipManager.addToolTip(actionToolTip, this);
+			}
+			
+		    public function init():void {
+		    	this.actionToolTip.content = this.actionToolTipContent;
+		    }
+
+		]]>
+	</mx:Script>
+	<mx:Image source="{ImageLibrary.IconGearDropdown}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.25" distance="2"/>
+		</mx:filters>
+	</mx:Image>
+
+		
+</customControl:CustomComponent>
+

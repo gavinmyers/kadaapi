@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" height="100%">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			import com.kpi.common.view.BaseControl;
+			
+			[Bindable]
+			public var baseControl:BaseControl;
+			
+			[Bindable]
+			public var isFirst:Boolean = false;
+			
+			[Bindable]
+			public var isLast:Boolean = false;
+			
+			[Bindable]
+			public var isSelected:Boolean = false;
+			
+
+		]]>
+	</mx:Script>
+	<mx:Image visible="{this.isSelected}" source="{ImageLibrary.TabDown}" width="100%" height="100%" maintainAspectRatio="false" scaleContent="true"/>
+	<mx:HBox verticalAlign="middle" horizontalGap="0" backgroundColor="white" backgroundAlpha="0">
+		<mx:Canvas width="5"/>
+		<mx:Image height="22" width="22" source="{baseControl.icon}"/>
+		<mx:Label styleName="ButtonHeader" text="{baseControl.title}"/>
+		<mx:Canvas width="5"/>
+		<mx:Canvas width="1" backgroundColor="{this.isSelected ? 0xCC0000 : 0x0033FF}" height="14"/>
+	</mx:HBox>
+</mx:Canvas>

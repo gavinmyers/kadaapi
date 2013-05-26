@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" xmlns:buttons="com.kpi.interfaces.buttons.*" xmlns:contractor="com.kpi.cairngorm.view.controls.contractor.*" xmlns:schedule="com.kpi.cairngorm.view.controls.schedule.*" xmlns:site="com.kpi.cairngorm.view.controls.site.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function constructor():void {
+				this.title = "Map";
+				this.icon = ImageLibrary.IconEarth;
+			}
+			
+			public override function show(evt:CairngormEvent):void {
+				
+			}
+		]]>
+	</mx:Script>
+	<core:content>
+		<mx:Grid width="100%" height="100%">
+			<mx:GridRow width="100%" height="100%">
+				<mx:GridItem height="100%">
+					<mx:VBox>
+						<buttons:ScheduleButton width="175" title="MartCo #4015" description="Coon Rapids, MN" icon="{ImageLibrary.IconSite}">
+							<buttons:actionToolTipContent>
+								<site:SiteScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton width="175" title="ATM Technician" description="Roy Phillips" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton width="175" title="Security 1" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton width="175" title="Security 2" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+					</mx:VBox>
+				</mx:GridItem>
+				<mx:GridItem width="100%" height="100%">
+					<mx:HTML location="http://www.gavinm.com/kadaapi/example_2.html" width="100%" height="100%" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+	</core:content>
+	
+</core:Control>
+

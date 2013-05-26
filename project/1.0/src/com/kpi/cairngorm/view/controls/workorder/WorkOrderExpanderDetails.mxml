@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Grid xmlns:mx="http://www.adobe.com/2006/mxml" width="100%">
+    <mx:Script><![CDATA[
+    	import com.kpi.cairngorm.view.windows.WorkOrder;
+    	import com.kpi.cairngorm.view.windows.Project;
+    import mx.collections.ArrayCollection;
+   
+			private function launch():void {
+				var obj:WorkOrder = new WorkOrder();
+				obj.open();
+			}
+        ]]>
+</mx:Script>
+
+
+
+		<mx:GridRow width="100%">
+			<mx:GridItem width="100%" colSpan="3">
+				<mx:Text width="100%" styleName="ListValue" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis, libero sit amet pharetra tincidunt, quam tortor facilisis nisl, a vulputate libero magna et metus. Ut leo urna, convallis nec vulputate non, luctus in velit. Donec ac tellus vitae eros commodo eleifend."/>						
+			</mx:GridItem>
+		</mx:GridRow>
+		
+		<mx:GridRow width="100%">
+						
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Stats" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Grid width="100%">
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Status" textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="In Progress"  textAlign="left" styleName="ListValue"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Created"  textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="04/11/2009 08:45AM"  textAlign="left" styleName="ListValue"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+						
+						<mx:GridRow width="100%">
+							<mx:GridItem width="80">
+								<mx:Label width="100%" text="Next Dispatch" textAlign="right" styleName="ListValueHighlighted"/>								
+							</mx:GridItem>
+							<mx:GridItem width="100%">
+								<mx:Label width="100%" text="11/14/2009 11:00AM"  textAlign="left" styleName="ListValue"/>								
+							</mx:GridItem>
+						</mx:GridRow>
+
+					</mx:Grid>
+				</mx:VBox>
+			</mx:GridItem>
+			
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Notes" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Text width="100%" text="Donec id condimentum arcu. Mauris tincidunt convallis nunc, eget vestibulum nisi molestie et. Etiam adipiscing purus vitae erat viverra non consequat tortor vulputate. Nunc elementum dapibus dolor, vitae posuere enim hendrerit sit amet. Aenean nec nisl"  textAlign="left" styleName="ListValue"/>
+				</mx:VBox>
+			</mx:GridItem>
+			
+			<mx:GridItem width="100%">
+				<mx:VBox width="100%">
+					<mx:Label text="Actions" styleName="ListValueHighlighted"/>
+					<mx:HRule width="100%"/>
+					<mx:Button label="Launch Work Order" click="launch()"/>
+				</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+
+
+</mx:Grid>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:local="*" width="100%" height="100%">
+	<mx:Script>
+		<![CDATA[
+		import mx.controls.Label;
+		import mx.core.Container;
+		import mx.collections.ArrayCollection;
+		import mx.binding.utils.BindingUtils;
+
+		
+		//todo: Parent
+		public var bindings:ArrayCollection = new ArrayCollection();
+		//todo: Parent
+		public function bind(prop:String, container:Container, label:Label = null):void {
+			
+			this.bindings.addItem(new ComponentBinding(this,prop,container,label ));
+		}
+
+		]]>
+	</mx:Script> 
+
+</mx:Canvas>

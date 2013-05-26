@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	horizontalScrollPolicy="off" 
+	verticalScrollPolicy="off" xmlns:filters="flash.filters.*">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			
+			[Bindable]
+			public var title:String;
+
+			[Bindable]
+			public var description:String;
+		]]>
+	</mx:Script>
+	<mx:Image width="100%" scaleContent="true" maintainAspectRatio="false" height="100%" source="{ImageLibrary.ActionButton}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.8" distance="3"/>
+		</mx:filters>
+	</mx:Image>
+	<mx:HBox paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5" width="100%" horizontalAlign="center" verticalAlign="middle" horizontalGap="0" >
+		<mx:Image width="64" height="64" source="{icon}"/>
+		<mx:VBox verticalGap="0">
+			<mx:Label selectable="false" text="{title}" styleName="ListValueHighlighted"/>
+			<mx:Text selectable="false" width="175" styleName="ListValue" text="{description}"/>
+		</mx:VBox>
+	</mx:HBox>
+
+</mx:Canvas>

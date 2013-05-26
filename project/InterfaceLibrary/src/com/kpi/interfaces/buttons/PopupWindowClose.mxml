@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="#FFFFFF" backgroundAlpha="0">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			
+		]]>
+	</mx:Script>
+	<mx:Image source="{ImageLibrary.IconWindowPopupClose}"/>
+</mx:Canvas>

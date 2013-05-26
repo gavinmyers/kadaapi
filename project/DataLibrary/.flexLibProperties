@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="com.kpi.cairngorm.model.ModelLocator"/>
+<classEntry path="com.kpi.cairngorm.view.core.Control"/>
+<classEntry path="com.kpi.cairngorm.view.core.Page"/>
+<classEntry path="com.kpi.cairngorm.model.AddEdit"/>
+<classEntry path="com.kpi.cairngorm.view.core.Popup"/>
+<classEntry path="com.kpi.cairngorm.model.Session"/>
+<classEntry path="com.kpi.cairngorm.model.Search"/>
+<classEntry path="com.kpi.cairngorm.global.Global"/>
+</includeClasses>
+<includeResources/>
+<namespaceManifests/>
+</flexLibProperties>

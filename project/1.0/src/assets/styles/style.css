@@ -1,0 +1,199 @@
+/* CSS file */
+
+@font-face
+{
+fontFamily: "Myriad Pro Bold";
+fontWeight: bold;
+src: url("assets/fonts/MyriadPro-Bold.otf");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro Bold Italic";
+fontWeight: bold;
+fontStyle: italic;
+src: url("assets/fonts/MyriadPro-BoldIt.otf ");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro Italic";
+fontWeight: normal;
+fontStyle: italic;
+src: url("assets/fonts/MyriadPro-It.otf");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro";
+src: url("assets/fonts/MyriadPro-Regular.otf");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro Semibold Italic";
+fontWeight: bold;
+fontStyle: italic;
+src: url("assets/fonts/MyriadPro-SemiboldIt.otf");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro Semibold";
+fontWeight: bold;
+src: url("assets/fonts/MyriadPro-Semibold.otf");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro Condensed Reg. Italic";
+fontStyle: italic;
+src: url("assets/fonts/MyriadPro-CondIt.otf");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro Condensed Reg.";
+src: url("assets/fonts/MyriadPro-Cond.otf");
+}
+/*
+@font-face
+{
+fontFamily: "Myriad Pro Condensed Bold";
+fontWeight:bold;
+src: url("assets/fonts/MyriadPro-BoldCondIt.otf");
+}
+
+@font-face
+{
+fontFamily: "Myriad Pro Condensed Bold Italic";
+fontStyle: italic;
+fontWeight:bold;
+src: url("assets/fonts/MyriadPro-BoldCond.otf");
+}
+*/
+
+/*
+	*********************************
+	GENERIC
+	*********************************
+*/
+.WindowTitleBarHeader {
+	fontFamily: "Myriad Pro Semibold Italic";
+	fontWeight: normal;
+	fontStyle: italic;
+	fontSize:16;
+	color: #FFFFFF;
+}
+
+.PopUpBarHeader {
+	fontFamily: "Myriad Pro Semibold Italic";
+	fontWeight: normal;
+	fontStyle: italic;
+	fontSize:12;
+	color: #000000;
+}
+
+.FormTitle {
+	fontFamily: "Myriad Pro Italic";
+	fontWeight: normal;
+	fontStyle: italic;
+	fontSize:14;
+	color: #FFFFFF;
+}
+
+.Text {
+	fontFamily: "Myriad Pro";
+	fontSize:11;
+	color: #FFFFFF;
+}
+
+.ButtonHeader {
+	fontFamily: "Myriad Pro Semibold";
+	fontWeight: bold;
+	fontSize:11;
+	color: #FFFFFF;
+}
+
+/*
+	*********************************
+	CALENDAR
+	*********************************
+*/
+.CalendarMonthHeader {
+	fontFamily: "Myriad Pro Semibold";
+	fontWeight: bold;
+	fontSize:13;
+	color: #FFFFFF;
+}
+
+.CalendarWeekday {
+	fontFamily: "Myriad Pro Semibold Italic";
+	fontWeight: bold;
+	fontStyle: italic;
+	fontSize:11;
+	color: #FFFFFF;
+}
+
+.CalendarTimePrimary {
+	fontFamily: "Myriad Pro Semibold Italic";
+	fontWeight: bold;
+	fontStyle: italic;
+	fontSize:10;
+	color: #9DB3D0;
+}
+
+.CalendarWeekdayDispatch {
+	fontFamily: "Myriad Pro";
+	fontSize: 11;
+	color: black;
+}
+
+.CalendarTime {
+	fontFamily: "Myriad Pro Italic";
+	fontStyle: italic;
+	fontSize:8;
+	color: #9DB3D0;
+}
+
+.CalendarDayNumber {
+	fontFamily: "Myriad Pro Semibold";
+	fontWeight: bold;
+	fontSize:11;
+	color: #FFFFFF;
+}
+
+/*
+	*********************************
+	LIST DATA
+	*********************************
+*/
+
+.ListValue {
+	fontFamily: "Myriad Pro";
+	fontSize:11;
+	color: #FFFFFF;
+}
+
+.ListValueHighlighted {
+	fontFamily: "Myriad Pro Bold";
+	fontWeight: bold;
+	fontSize:11;
+	color: #FFFFFF;
+}
+
+
+.ListValueBlack {
+	fontFamily: "Myriad Pro";
+	fontSize:11;
+	color: #000000;
+}
+
+.ListValueBlackHighlighted {
+	fontFamily: "Myriad Pro Bold";
+	fontWeight: bold;
+	fontSize:11;
+	color: #000000;
+}
+
+

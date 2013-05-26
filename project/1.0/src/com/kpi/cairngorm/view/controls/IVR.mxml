@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			
+			public override function constructor():void {
+				this.title = "IVR";
+				this.icon = ImageLibrary.IconIVR;
+			}
+			
+			public override function show(evt:CairngormEvent):void {
+				
+			}
+		]]>
+	</mx:Script>
+	<core:content>
+		<mx:Box width="100%" height="100%" direction="vertical" backgroundColor="Green">
+		</mx:Box>
+	</core:content>
+	
+</core:Control>
+

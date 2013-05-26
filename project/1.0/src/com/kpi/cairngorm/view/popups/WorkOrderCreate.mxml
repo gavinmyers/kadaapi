@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Popup title="New Work Order" 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" height="100%" xmlns:core="com.kpi.cairngorm.view.core.*" 
+	xmlns:workorder="com.kpi.cairngorm.view.controls.workorder.*" 
+	xmlns:workordertemplate="com.kpi.cairngorm.view.controls.workordertemplate.*" creationComplete="init()">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.containers.Canvas;
+			import com.kpi.cairngorm.view.core.Control;
+			import com.adobe.cairngorm.control.CairngormEvent;
+			import mx.core.Container;
+			import mx.collections.ArrayCollection;
+			[Bindable]
+			private var position:String = "first"; //first,middle,last
+			
+			[Bindable]
+			private var sections:ArrayCollection = new ArrayCollection();
+			
+			[Bindable]
+			private var nextSection:Container = null;
+			
+			private function init():void {
+				this.landing.addEventListener("TEMPLATE", landingSelectTemplate);
+				this.landing.addEventListener("MANUAL", landingSelectManual);
+				this.sections.addItem(this.landing);
+				this.sections.addItem(this.templateCreate);
+				this.sections.addItem(this.template);
+				this.sections.addItem(this.sites);
+				this.sections.addItem(this.techniciansAndDates);
+				this.nextSection = this.landing as Container;
+				this.doUpdate();
+			}
+			
+			private function landingSelectTemplate(evt:Event):void {
+				this.nextSection = this.template as Container;
+				this.doUpdate();
+			}
+			
+			private function landingSelectManual(evt:Event):void {
+				this.nextSection = this.templateCreate as Container;
+				this.doUpdate();
+			}
+			
+			private function hideContent():void {
+				for each(var disp:Container in this.sections) {
+					disp.visible = false;
+					disp.includeInLayout = false;
+				}
+			}
+			
+			private function next():void {
+				if(this.sections.getItemIndex(this.nextSection) >= this.sections.length  - 1) {
+					this.close();
+				} else {
+					this.nextSection = this.sections.getItemAt( this.sections.getItemIndex(this.nextSection) + 1)  as Container;
+				}
+				this.doUpdate();
+			}
+			
+			private function back():void {
+
+				if(this.sections.getItemIndex(this.nextSection) == 0) {
+					return;
+				} else {
+					this.nextSection = this.sections.getItemAt( this.sections.getItemIndex(this.nextSection) - 1)  as Container;
+				}
+				this.doUpdate();
+			}
+			
+			public override function update(evt:CairngormEvent):void {
+
+				if(this.nextSection == null) {
+					return;
+				}
+
+				this.hideContent();
+				this.nextSection.visible = true;
+				this.nextSection.includeInLayout = true;
+				
+				if(this.sections.getItemIndex(this.nextSection) == 0) {
+					this.position = "first";
+				} else if(this.sections.getItemIndex(this.nextSection) + 1 == this.sections.length) {
+					this.position = "last";
+				} else {
+					this.position = "middle";
+				}
+			}
+		]]>
+	</mx:Script>
+	
+	<core:content>
+		<mx:Canvas width="100%" height="100%" >
+			<workorder:WorkOrderCreateLanding id="landing" visible="false" includeInLayout="false"/>
+			<workorder:WorkOrderCreateSelectTemplate id="template" visible="false" includeInLayout="false"/>
+			<workordertemplate:WorkOrderTemplateCreate id="templateCreate" visible="false" includeInLayout="false"/>
+			<workorder:WorkOrderCreateSelectSites id="sites" visible="false" includeInLayout="false"/>
+			<workorder:WorkOrderCreateSelectTechniciansAndDates id="techniciansAndDates" visible="false" includeInLayout="false"/>
+		</mx:Canvas>
+	</core:content>
+	
+	<core:leftButtons>
+		<mx:Button label="close" visible="false"/>
+		<mx:Button label="refresh" visible="false"/>
+	</core:leftButtons>
+	
+	<core:rightButtons>
+		<mx:Button click="back()" label="back" visible="{this.position != 'first'}"/>
+		<mx:Button click="next()" label="{this.position != 'last' ? 'next' : 'save and close'}" visible="{this.position != 'first'}"/>
+	</core:rightButtons>
+
+</core:Popup>

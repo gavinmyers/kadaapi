@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="com.kpi.interfaces.windows.PopupWindow"/>
+<classEntry path="com.kpi.interfaces.windows.StandardWindow"/>
+<classEntry path="com.kpi.common.view.BaseControl"/>
+<classEntry path="Laser"/>
+<classEntry path="com.kpi.interfaces.buttons.ScheduleButton"/>
+<classEntry path="com.kpi.interfaces.tooltips.ActionToolTip"/>
+<classEntry path="com.kpi.interfaces.buttons.ActionGear"/>
+<classEntry path="com.kpi.common.event.KPIEventDispatcher"/>
+<classEntry path="com.kpi.interfaces.expanders.ExpanderCheck"/>
+<classEntry path="com.kpi.interfaces.buttons.WindowClose"/>
+<classEntry path="com.kpi.interfaces.controls.StandardControl"/>
+<classEntry path="com.kpi.interfaces.customControl.CustomWindow"/>
+<classEntry path="com.kpi.managers.ToolTipManager"/>
+<classEntry path="com.kpi.interfaces.buttons.PopupWindowClose"/>
+<classEntry path="com.kpi.common.view.BasePage"/>
+<classEntry path="com.kpi.common.view.BasePopup"/>
+<classEntry path="com.kpi.interfaces.buttons.ActionButton"/>
+<classEntry path="com.kpi.interfaces.customControl.ComponentBinding"/>
+<classEntry path="com.kpi.interfaces.components.ToggleButtonBarComponent"/>
+<classEntry path="com.kpi.interfaces.customControl.CustomComponent"/>
+<classEntry path="com.kpi.interfaces.components.ToggleButtonBar"/>
+<classEntry path="com.kpi.interfaces.expanders.Expander"/>
+</includeClasses>
+<includeResources/>
+<namespaceManifests/>
+</flexLibProperties>

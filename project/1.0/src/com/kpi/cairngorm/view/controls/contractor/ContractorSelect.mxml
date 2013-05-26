@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" 
+	xmlns:expanders="com.kpi.interfaces.expanders.*" 
+	xmlns:contractor="com.kpi.cairngorm.view.controls.contractor.*" 
+	xmlns:buttons="com.kpi.interfaces.buttons.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.interfaces.expanders.ExpanderCheck;
+			import com.kpi.utilities.ImageLibrary;
+			
+			private function uncheck(evt:Event):void {
+				var startec:ExpanderCheck = evt.target as ExpanderCheck;
+				if(startec.selected == false) {
+					return;
+				}
+				for each(var disp:DisplayObject in this.scroll_content.getChildren()) {
+					if(disp is ExpanderCheck) {
+						var ec:ExpanderCheck = disp as ExpanderCheck;
+						if(ec != startec) {
+							ec.selected = false;
+						}
+					}
+				}
+			}
+		]]>
+	</mx:Script>
+	
+	<core:content>
+		<mx:Grid width="100%" height="100%">
+
+			<mx:GridRow width="100%" height="100%">
+				<mx:GridItem width="100%" height="100%" >
+		<mx:Canvas id="scroll_section" horizontalScrollPolicy="off" verticalScrollPolicy="auto" width="100%" height="100%">
+			<mx:VBox id="scroll_content" height="100%" verticalGap="2" left="0" right="{this.scroll_content.height > this.scroll_section.height ? 20 : 0}">
+				<mx:Canvas width="100%">
+					<mx:Grid left="5" right="50">
+						<mx:GridRow width="100%">
+							<mx:GridItem width="100%" >
+								<mx:Label text="Name" styleName="ListValueBlackHighlighted"/>
+							</mx:GridItem>
+							<mx:GridItem width="100" >
+								<mx:Label text="Distance" styleName="ListValueBlackHighlighted"/>
+							</mx:GridItem>
+							<mx:GridItem width="120" >
+								<mx:Label text="Rank" styleName="ListValueBlackHighlighted"/>		
+							</mx:GridItem>
+						</mx:GridRow>
+					</mx:Grid>					
+				</mx:Canvas>
+			
+				<expanders:ExpanderCheck icon="{ImageLibrary.IconStar}" selectedChange="uncheck(event)">
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="100%" >
+									<mx:Label text="John Walker" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100" >
+									<mx:Label text="16.4 miles" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:HBox width="100%">
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>	
+									</mx:HBox>	
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<contractor:ContractorExpanderDetails/>
+					</expanders:content>
+				</expanders:ExpanderCheck>
+				
+				
+				<expanders:ExpanderCheck icon="{ImageLibrary.IconStar}" selectedChange="uncheck(event)">
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="100%" >
+									<mx:Label text="Larry Walker" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100" >
+									<mx:Label text="4.1 miles" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:HBox width="100%">
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+									</mx:HBox>	
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<contractor:ContractorExpanderDetails/>
+					</expanders:content>
+				</expanders:ExpanderCheck>
+				
+				<expanders:ExpanderCheck icon="{ImageLibrary.IconStar}" selectedChange="uncheck(event)">
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="100%" >
+									<mx:Label text="Fred Zette" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100" >
+									<mx:Label text="8.4 miles" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:HBox width="100%">
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>	
+									</mx:HBox>	
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<contractor:ContractorExpanderDetails/>
+					</expanders:content>
+				</expanders:ExpanderCheck>
+				
+				<expanders:ExpanderCheck icon="{ImageLibrary.IconStar}" selectedChange="uncheck(event)">
+					<expanders:header>
+						<mx:Grid width="100%">
+							<mx:GridRow width="100%">
+								<mx:GridItem width="100%" >
+									<mx:Label text="Joe Zette" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="100" >
+									<mx:Label text="24.8 miles" styleName="ListValueHighlighted"/>
+								</mx:GridItem>
+								<mx:GridItem width="120" verticalAlign="middle" >
+									<mx:HBox width="100%">
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>
+										<mx:Image source="{ImageLibrary.IconStar}" height="16" width="16" scaleContent="true"/>	
+									</mx:HBox>	
+								</mx:GridItem>
+							</mx:GridRow>
+						</mx:Grid>
+					</expanders:header>
+					<expanders:content>
+						<contractor:ContractorExpanderDetails/>
+					</expanders:content>
+				</expanders:ExpanderCheck>
+			
+				
+			</mx:VBox>
+		</mx:Canvas>
+				</mx:GridItem>
+			</mx:GridRow>
+		</mx:Grid>
+
+
+	</core:content>
+
+
+	
+</core:Control>
+

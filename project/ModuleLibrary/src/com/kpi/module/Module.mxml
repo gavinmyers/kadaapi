@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	width="100%" 
+	height="100%" 
+	implements="com.kpi.module.IModule" 
+	creationComplete="_init()">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.cairngorm.global.Global;
+			import com.kpi.cairngorm.model.ModelLocator;
+		import mx.core.EdgeMetrics;
+		import mx.validators.StringValidator;
+		import com.kpi.common.view.BasePage;
+		import com.kpi.common.event.KPIEventDispatcher;
+		import com.adobe.cairngorm.control.CairngormEvent;
+		import com.kpi.interfaces.customControl.ComponentBinding;
+		import mx.controls.Label;
+		import mx.core.Container;
+		import mx.collections.ArrayCollection;
+		import mx.binding.utils.BindingUtils;
+
+		[Bindable]
+		public var title:String;
+		
+		//Local Model
+		[Bindable]
+		public var model:ModelLocator = new ModelLocator();
+
+		//Global Object
+		[Bindable]
+		public var global:Global = Global.Instance();
+		
+		[Bindable]
+		public var content:Object;
+		
+		//todo: Parent
+		public var bindings:ArrayCollection = new ArrayCollection();
+		
+		
+		
+		public static var UPDATE:String = "UPDATE";
+		public static var UPDATE_COMPLETE:String = "UPDATE_COMPLETE";
+		
+		public static var SHOW:String = "SHOW";
+		public static var SHOW_COMPLETE:String = "SHOW_COMPLETE";
+		
+		public static var HIDE:String = "HIDE";
+		public static var HIDE_COMPLETE:String = "HIDE_COMPLETE";
+		
+		public static var RESET:String = "RESET";
+		public static var RESET_COMPLETE:String = "RESET_COMPLETE";
+		
+
+	    private function _init():void {
+	         // Move the app when the panel is dragged
+	    	this.bind("content",this.content_area,null);
+			this.addEventListener(Event.ADDED_TO_STAGE, addedToStage);
+			event.addEventListener(UPDATE,update);
+			event.addEventListener(SHOW,show);
+			event.addEventListener(HIDE,hide); 
+			event.addEventListener(RESET,reset);
+			addEventListener("focusIn", makeFocusedItemVisible);
+			this.updatePage();
+			this.constructor();    		    
+	    }
+	    
+	    public function constructor():void {
+	    	
+	    }
+		
+		//todo: Parent
+		public function bind(prop:String, container:Container, label:Label = null):void {
+			
+			this.bindings.addItem(new ComponentBinding(this,prop,container,label ));
+		}
+		
+		public function getModel():ModelLocator {
+			return this.model;
+		}
+		
+		public function setModel(ml:ModelLocator):void {
+			this.model = ml;
+		}
+		
+		public function getGlobal():Global {
+			return this.global;
+		}
+		
+		public function setGlobal(g:Global):void {
+			this.global = g;
+		}
+		
+		public function toObject():Object {
+			var obj:Object = new Object();
+			obj["label"] = this.title;
+			obj["icon"] = this.icon;
+			obj["data"] = this;
+			return obj;
+		}
+		
+		private function addedToStage(obj:Object):void {
+			this.updatePage();
+		}
+		
+
+	
+//START
+		   
+        public function makeFocusedItemVisible(event:FocusEvent):void {
+            // Target is the actual object that has focus.
+            trace("makeFocusedItemVisible is running!");
+            var target:InteractiveObject = InteractiveObject(event.target);
+            // OriginalTarget is the component that has focus as some
+            // component actually delegate true focus to an internal object.
+            var originalTarget:InteractiveObject = 
+        InteractiveObject(focusManager.findFocusManagerComponent(target));
+    	if(originalTarget == null){
+    		return;
+    	}
+            // The viewable portion of a container
+            var viewport:Rectangle = new Rectangle();
+            do {
+                // Cycle through all parents looking for containers.
+                if (target.parent is Container) {
+                    var viewportChanged:Boolean = false;
+                    var c:Container = target.parent as Container;
+
+                    // Get the viewable area in the container.
+                    var vm:EdgeMetrics = c.viewMetrics;
+                    viewport.x = vm.left;
+                    viewport.y = vm.top;
+                    viewport.width = 
+                        c.width / c.scaleX - vm.left - vm.right;
+                    viewport.height = 
+                        c.height / c.scaleY - vm.top - vm.bottom;
+                    
+                    // Calculate the position of the target in the container.
+                    var topLeft:Point = new Point(0, 0);
+                    var bottomRight:Point = 
+                new Point(originalTarget.width, originalTarget.height);
+                    topLeft = originalTarget.localToGlobal(topLeft);
+                    topLeft = c.globalToLocal(topLeft);
+                    bottomRight = originalTarget.localToGlobal(bottomRight);
+                    bottomRight = c.globalToLocal(bottomRight);
+    
+                    // Figure out if we have to move the scroll bars.
+                    // If the scroll bar moves, the position of the component
+                    // moves as well. This algorithm makes sure the top
+                    // left of the component is visible if the component is
+                    // bigger than the viewport.
+                    var delta:Number;
+
+                    if (bottomRight.x > viewport.right) {
+                        delta = bottomRight.x - viewport.right;
+                        c.horizontalScrollPosition += delta;
+                        topLeft.x -= delta;
+                        viewportChanged = true;
+                    }
+
+                    if (topLeft.x < viewport.left) {
+                        // leave it a few pixels in from the left
+                        c.horizontalScrollPosition -= 
+                            viewport.left - topLeft.x + 2;
+                        viewportChanged = true;
+                    }
+                    
+                    if (bottomRight.y > viewport.bottom) {
+                        delta = bottomRight.y - viewport.bottom;
+                        c.verticalScrollPosition += delta;
+                        topLeft.y -= delta;
+                        viewportChanged = true;
+                    }
+                    
+                    if (topLeft.y < viewport.top) {
+                        // leave it a few pixels down from the top
+                        c.verticalScrollPosition -= 
+                            viewport.top - topLeft.y + 2;
+                        viewportChanged = true;
+                    }
+                    
+                    // You must the validateNow() method to get the 
+                    // container to move the component before working 
+                    // on the next parent.
+                    // Otherwise, your calculations will be incorrect.
+                    if (viewportChanged) {
+                        c.validateNow();
+                    }
+                }
+                
+                target = target.parent;
+            }
+            
+            while (target != this);
+        }
+//END
+
+		
+		public function updatePage():void {
+
+			var par:DisplayObject = this.parent;
+			for(var i:int = 0; i < 50; i++) {
+				if(par == null) {
+					return
+				} else if(par is BasePage) {
+					this.page = par as BasePage;
+					break;
+				} else {
+					par = par.parent;
+				}
+			}
+		}
+		
+		
+		//Page
+		[Bindable]
+		public var page:BasePage;
+		
+		//Page
+		[Bindable]
+		public var active:Boolean;
+		
+		//Local Event
+		[Bindable]
+		public var event:KPIEventDispatcher = new KPIEventDispatcher();
+		
+		
+		[Bindable]				
+		public var changed:Boolean = false;
+		
+		public var stringValidtor:StringValidator = new StringValidator();
+		
+
+		public function validate():Boolean {
+			return true;
+		}
+		
+		public function show(evt:CairngormEvent):void {
+			this.active = true;
+			event.dispatchEvent(new CairngormEvent(SHOW_COMPLETE));
+		}
+		
+		public function hide(evt:CairngormEvent):void {
+			this.active = false; 
+			event.dispatchEvent(new CairngormEvent(HIDE_COMPLETE));
+		}
+		
+		public function update(evt:CairngormEvent):void {
+			event.dispatchEvent(new CairngormEvent(UPDATE_COMPLETE));
+		}
+		
+		public function reset(evt:CairngormEvent):void {
+			event.dispatchEvent(new CairngormEvent(RESET_COMPLETE));
+		}
+		
+		public function doReset(callback:Function = null):void {
+			if(callback != null) {
+				event.addEventListener(RESET_COMPLETE, callback);
+			}
+			event.dispatchEvent(new CairngormEvent(RESET));
+		}
+		
+		public function doHide(callback:Function = null):void {
+			if(callback != null) {
+				event.addEventListener(HIDE_COMPLETE, callback);
+			}
+			event.dispatchEvent(new CairngormEvent(HIDE));
+		}
+		
+		public function doShow(callback:Function = null):void {
+			if(callback != null) {
+				event.addEventListener(SHOW_COMPLETE, callback);
+			}
+			event.dispatchEvent(new CairngormEvent(SHOW));
+		}
+		
+		public function doUpdate(callback:Function = null):void {
+			if(callback != null) {
+				event.addEventListener(UPDATE_COMPLETE, callback);
+			}
+			event.dispatchEvent(new CairngormEvent(UPDATE));
+		}
+		
+		public override function toString():String {
+			return this.label;
+		}
+
+		]]>
+	</mx:Script>
+	
+<mx:Canvas horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	id="content_area" 
+	width="100%" 
+	height="100%" />
+</mx:Module>

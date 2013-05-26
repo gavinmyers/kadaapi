@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customControl:CustomComponent height="43" 
+	click="showToolTip()"
+	creationComplete="init()"
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	horizontalScrollPolicy="off" 
+	verticalScrollPolicy="off" 
+	xmlns:filters="flash.filters.*" 
+	xmlns:customControl="com.kpi.interfaces.customControl.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.managers.ToolTipManager;
+			import com.kpi.interfaces.tooltips.ActionToolTip;
+			import mx.events.ToolTipEvent;
+			import com.kpi.utilities.ImageLibrary;
+			
+			[Bindable]
+			public var title:String;
+
+			[Bindable]
+			public var description:String;
+			
+			[Bindable]
+			public var status:String = ScheduleButton.STATUS_OPEN;
+			
+			[Bindable]
+			public static var STATUS_OPEN:String = 'OPEN';
+			[Bindable]
+			public static var STATUS_COMPLETE:String = 'COMPLETE';
+			[Bindable]
+			public static var STATUS_WARNING:String = 'WARNING';
+			[Bindable]
+			public static var STATUS_ERROR:String = 'ERROR';
+			[Bindable]
+			public static var STATUS_DISABLED:String = 'DISABLED';
+			
+			[Bindable]
+			public var actionToolTipContent:Object;
+			
+			private var actionToolTip:ActionToolTip = new ActionToolTip();
+			
+			private function showToolTip():void {
+				if(actionToolTipContent != null) {
+					ToolTipManager.addToolTip(actionToolTip, this);
+				}
+			}
+			
+		    public function init():void {
+		    	this.actionToolTip.content = this.actionToolTipContent;
+		    }
+
+		]]>
+	</mx:Script>
+	<mx:Image alpha="0.5" top="3" left="3" bottom="5" right="5" visible="{status == ScheduleButton.STATUS_DISABLED}" includeInLayout="{status == ScheduleButton.STATUS_DISABLED}" scaleContent="true" maintainAspectRatio="false" source="{ImageLibrary.ActionButton}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.25" distance="2"/>
+		</mx:filters>
+	</mx:Image>
+	
+	<mx:Image top="3" left="3" bottom="5" right="5" visible="{status == ScheduleButton.STATUS_OPEN}" includeInLayout="{status == ScheduleButton.STATUS_OPEN}" scaleContent="true" maintainAspectRatio="false" source="{ImageLibrary.ActionButton}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.8" distance="2"/>
+		</mx:filters>
+	</mx:Image>
+	
+	<mx:Image top="3" left="3" bottom="5" right="5" visible="{status == ScheduleButton.STATUS_COMPLETE}" includeInLayout="{status == ScheduleButton.STATUS_COMPLETE}" scaleContent="true" maintainAspectRatio="false" source="{ImageLibrary.ActionButtonComplete}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.8" distance="2"/>
+		</mx:filters>
+	</mx:Image>
+	
+	<mx:Image top="3" left="3" bottom="5" right="5" visible="{status == ScheduleButton.STATUS_WARNING}" includeInLayout="{status == ScheduleButton.STATUS_WARNING}" scaleContent="true" maintainAspectRatio="false" source="{ImageLibrary.ActionButtonWarning}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.8" distance="2"/>
+		</mx:filters>
+	</mx:Image>
+	
+	<mx:Image top="3" left="3" bottom="5" right="5" visible="{status == ScheduleButton.STATUS_ERROR}" includeInLayout="{status == ScheduleButton.STATUS_ERROR}" scaleContent="true" maintainAspectRatio="false" source="{ImageLibrary.ActionButtonError}">
+		<mx:filters>
+			<filters:DropShadowFilter alpha="0.8" distance="2"/>
+		</mx:filters>
+	</mx:Image>
+	
+	<mx:HBox top="4" left="6" bottom="8" right="5" paddingRight="10" verticalAlign="middle" horizontalGap="0" >
+		<mx:Image width="22" height="22" source="{icon}"/>
+		<mx:VBox verticalGap="0"  >
+			<mx:Label enabled="{this.status != ScheduleButton.STATUS_DISABLED}" height="15" text="{title}" styleName="ListValueHighlighted"/>
+			<mx:Text selectable="false" enabled="{this.status != ScheduleButton.STATUS_DISABLED}" height="15" styleName="ListValue" text="{description}"/>
+		</mx:VBox>
+	</mx:HBox>
+
+		
+</customControl:CustomComponent>
+

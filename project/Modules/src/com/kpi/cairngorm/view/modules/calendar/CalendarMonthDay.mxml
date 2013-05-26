@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="100%" 
+	height="100%" 
+	backgroundColor="{this.date.getMonth() != this.currentDate.getMonth() ? 0xffffff : 0x0c184c}" 
+	backgroundAlpha="{this.date.getMonth() != this.currentDate.getMonth() ? 0.35 : 0.25}" 
+	borderColor="{this.date.getTime() == this.currentDate.getTime() ? 0xffb156 : 0x4a5790}" 
+	borderThickness="1" borderStyle="solid">
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.utilities.ImageLibrary;
+			[Bindable]
+			public var date:Date = new Date();
+			
+			[Bindable]
+			public var currentDate:Date = new Date();
+			
+			[Bindable]
+			public var selectedDate:Date = new Date();
+			
+			[Bindable]
+			public var hasDispatch:Boolean;
+			
+			[Bindable]
+			public var hasDispatchAlert:Boolean;
+			
+			
+		]]>
+	</mx:Script>
+	<mx:Canvas top="0" left="0" width="18" height="14" borderColor="#8c9de9" borderThickness="1" borderStyle="solid" backgroundColor="#8c9de9" backgroundAlpha="0.25">
+		<mx:Label text="{date.getDate()}" styleName="CalendarDayNumber" width="100%" height="100%" textAlign="center" verticalCenter="1"/>
+	</mx:Canvas>
+	<mx:Image visible="{this.hasDispatch}" source="{ImageLibrary.IconClock}" scaleContent="true" width="32" height="32" right="5" bottom="5">
+		<mx:filters>
+			<mx:DropShadowFilter alpha="0.25" distance="3"/>
+		</mx:filters>
+	</mx:Image>
+	<mx:Image visible="{this.hasDispatchAlert}" source="{ImageLibrary.IconAlert}" scaleContent="true" width="12" height="12" right="24" bottom="24"/>
+</mx:Canvas>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<core:Control 
+	xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" 
+	xmlns:buttons="com.kpi.interfaces.buttons.*" 
+	xmlns:contractor="com.kpi.cairngorm.view.controls.contractor.*" 
+	xmlns:schedule="com.kpi.cairngorm.view.controls.schedule.*" xmlns:controls="com.kpi.cairngorm.view.controls.*" xmlns:popups="com.kpi.cairngorm.view.popups.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kpi.interfaces.buttons.ScheduleButton;
+			import com.kpi.utilities.ImageLibrary;
+		]]>
+	</mx:Script>
+	
+	<core:content>
+	<mx:Grid width="100%" height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+		<mx:GridRow width="100%">
+			<mx:GridItem width="100%">
+				<mx:Text width="100%" styleName="ListValueBlack" text="Fusce ut dolor ac urna ornare ultrices. Nunc gravida, neque scelerisque tincidunt vehicula, quam leo accumsan sem, fermentum condimentum nulla ligula quis urna. Aenean nec lectus eu eros elementum suscipit at at nulla. In adipiscing laoreet tempus. Mauris id nunc eu enim convallis vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent porta eros in tortor suscipit accumsan. Sed eu mauris vel velit viverra lacinia. Integer tempor facilisis tellus, vel faucibus massa tincidunt interdum. Mauris at tellus eros, eu posuere dui. "/>						
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow width="100%" height="100%">
+			<mx:GridItem width="100%" height="100%">
+
+		<mx:VBox width="100%" height="100%">
+			<mx:HBox width="100%">
+				<buttons:ActionButton 
+					icon="{ImageLibrary.IconSite}" 
+					title="Supermart 2025" 
+					description="10257 East Lane Road {'\n'} Minneapolis, MN 55433"/>
+				<mx:VBox>
+					<mx:HBox>
+						<buttons:ScheduleButton width="175" title="ATM Technician" description="Roy Phillips" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" title="01/21/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" title="01/23/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" title="01/27/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+					</mx:HBox>
+					
+					<mx:HBox>
+						<buttons:ScheduleButton width="175" title="Security 1" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/21/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" title="01/23/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/27/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+					</mx:HBox>
+					
+					<mx:HBox>
+						<buttons:ScheduleButton width="175" title="Security 2" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/21/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" title="01/23/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/27/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+					</mx:HBox>
+				</mx:VBox>
+			</mx:HBox>
+			<mx:HRule width="100%"/>
+			
+			<mx:HBox width="100%">
+				<buttons:ActionButton 
+					icon="{ImageLibrary.IconSite}" 
+					title="Supermart 2143" 
+					description="111222 West Street Road {'\n'} St. Paul, MN 55101"/>
+				<mx:VBox>
+					<mx:HBox>
+						<buttons:ScheduleButton  width="175" title="ATM Technician" description="--not selected--" icon="{ImageLibrary.IconAlert}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorSelect width="640" height="480"/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110"  title="--not set--" description="" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110"  title="--not set--" description="" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110"  title="--not set--" description="" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+					</mx:HBox>
+					
+					<mx:HBox>
+						<buttons:ScheduleButton width="175" title="Security 1" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/21/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110"  title="--not set--" description="" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/27/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+					</mx:HBox>
+					
+					<mx:HBox>
+						<buttons:ScheduleButton width="175" title="Security 2" description="ABC Security Corporation" icon="{ImageLibrary.IconContractor}">
+							<buttons:actionToolTipContent>
+								<contractor:ContractorScheduleDetails/>
+							</buttons:actionToolTipContent>						
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/21/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110"  title="--not set--" description="" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+						<buttons:ScheduleButton  width="110" visible="false" title="01/27/2009" description="09:30AM" icon="{ImageLibrary.IconDate}">
+							<buttons:actionToolTipContent>
+								<popups:WorkOrderSelectDate width="640" height="480"/>
+							</buttons:actionToolTipContent>		
+						</buttons:ScheduleButton>
+						
+					</mx:HBox>
+				</mx:VBox>
+			</mx:HBox>
+			
+		</mx:VBox>
+			</mx:GridItem>
+		</mx:GridRow>
+		
+	</mx:Grid>
+	
+	</core:content>
+	
+</core:Control>

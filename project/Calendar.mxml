@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" backgroundColor="red" width="400" height="300" xmlns:module="com.kpi.module.*">
+
+	<mx:Script>
+		<![CDATA[
+			public override function constructor():void {
+				trace("BUILT!");
+				trace(this.global.model.session.version);
+			}
+		]]>
+	</mx:Script>
+	
+	
+</module:Module>

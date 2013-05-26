@@ -1,0 +1,70 @@
+<mx:Grid xmlns:mx="http://www.adobe.com/2006/mxml"  
+	xmlns:windows="com.kpi.interfaces.windows.*" 
+	xmlns:core="com.kpi.cairngorm.view.core.*" 
+	xmlns:calendar="com.kpi.cairngorm.view.modules.calendar.*"
+	width="100%" height="100%">
+	<mx:GridRow width="100%">
+		<mx:GridItem colSpan="2" width="100%">
+
+		</mx:GridItem>
+		<mx:GridItem colSpan="3" width="100%">
+			<mx:HBox width="100%" height="100%" verticalAlign="middle" verticalCenter="1">
+				<mx:Button label="&lt;&lt;"/>
+				<mx:Label text="December 2011" styleName="CalendarMonthHeader" width="100%" textAlign="center"/>
+				<mx:Button label="&gt;&gt;"/>
+			</mx:HBox>
+			
+		</mx:GridItem>
+		<mx:GridItem colSpan="2" width="100%">
+			
+		</mx:GridItem>
+	</mx:GridRow>
+	<mx:GridRow width="100%">
+		<mx:GridItem width="100%">
+			<mx:Label text="Sunday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Monday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Tuesday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Wednesday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Thursday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Friday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+		<mx:GridItem width="100%">
+			<mx:Label text="Saturday" styleName="CalendarWeekday"/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+	<mx:GridRow width="100%" height="100%">
+		<mx:GridItem>
+			<calendar:CalendarWeekDay/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarWeekDay/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarWeekDay/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarWeekDay/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarWeekDay/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarWeekDay/>
+		</mx:GridItem>
+		<mx:GridItem>
+			<calendar:CalendarWeekDay/>
+		</mx:GridItem>
+	</mx:GridRow>
+	
+</mx:Grid>
